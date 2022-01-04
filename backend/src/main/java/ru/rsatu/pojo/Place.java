@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Place")
+@Table(name = "place")
 public class Place {
     @Id
     private Long id_place;
@@ -25,7 +25,5 @@ public class Place {
 
     public Place() {
     }
-    public Place(String place_name) {
-        this.place_name = place_name;
-    }
+
 }

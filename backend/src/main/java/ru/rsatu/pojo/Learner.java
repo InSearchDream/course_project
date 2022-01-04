@@ -8,10 +8,10 @@ import javax.persistence.Table;
 import java.sql.Date;
 
 @Entity
-@Table(name = "Learner")
+@Table(name = "learner")
 public class Learner {
     @Id
-    private Long id_trainer;
+    private Long id_learner;
     private String last_name;
     private String first_name;
     private String middle_name;
@@ -20,8 +20,8 @@ public class Learner {
     private Date birthday;
     private String id_section;
 
-    public Long getId_trainer() {
-        return id_trainer;
+    public Long getId_learner() {
+        return id_learner;
     }
 
     public String getLast_name() {
@@ -75,12 +75,4 @@ public class Learner {
     public Learner() {
     }
 
-    public Learner(String last_name, String first_name, String middle_name, String phone, Date birthday, String id_section) {
-        this.last_name = last_name;
-        this.first_name = first_name;
-        this.middle_name = middle_name;
-        this.phone = phone;
-        this.birthday = birthday;
-        this.id_section = id_section;
-    }
 }

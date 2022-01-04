@@ -7,7 +7,7 @@ import java.sql.Time;
 import java.sql.Date;
 
 @Entity
-@Table(name = "Schedule")
+@Table(name = "schedule")
 public class Schedule {
     @Id
     private Long id_schedule;
@@ -91,14 +91,5 @@ public class Schedule {
     public Schedule() {
     }
 
-    public Schedule(String id_place, String id_section, String id_header_schedule, Date date, Time time_start, Time time_end, Boolean cansell, String note) {
-        this.id_place = id_place;
-        this.id_section = id_section;
-        this.id_header_schedule = id_header_schedule;
-        this.date = date;
-        this.time_start = time_start;
-        this.time_end = time_end;
-        this.cansell = cansell;
-        this.note = note;
-    }
+
 }

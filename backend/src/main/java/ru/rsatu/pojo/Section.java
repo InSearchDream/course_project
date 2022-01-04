@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Section")
+@Table(name = "section")
 public class Section {
     @Id
     private Long id_section;
@@ -35,8 +35,4 @@ public class Section {
     public Section() {
     }
 
-    public Section(String section_name, String id_trainer) {
-        this.section_name = section_name;
-        this.id_trainer = id_trainer;
-    }
 }

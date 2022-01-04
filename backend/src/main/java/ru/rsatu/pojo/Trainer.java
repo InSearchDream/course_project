@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import java.sql.Date;
 
 @Entity
-@Table(name = "Trainer")
+@Table(name = "trainer")
 public class Trainer {
     @Id
     private Long id_trainer;
@@ -66,11 +66,4 @@ public class Trainer {
     public Trainer() {
     }
 
-    public Trainer (String last_name, String first_name, String middle_name, String phone, Date birthday) {
-        this.last_name = last_name;
-        this.first_name = first_name;
-        this.middle_name = middle_name;
-        this.phone = phone;
-        this.birthday = birthday;
-    }
 }

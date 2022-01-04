@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "HeaderSchedule")
+@Table(name = "headerschedule")
 public class HeaderSchedule {
     @Id
     private Long id_header_schedule;
@@ -35,8 +35,5 @@ public class HeaderSchedule {
     public HeaderSchedule() {
     }
 
-    public HeaderSchedule(String header_name, Boolean approved) {
-        this.header_name = header_name;
-        this.approved = approved;
-    }
+
 }
