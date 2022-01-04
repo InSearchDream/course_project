@@ -18,7 +18,6 @@ public class Schedule {
     private Time time_start;
     private Time time_end;
     private Boolean cansell;
-    private Boolean approved;
     private String note;
 
     public Long getId_schedule() {
@@ -81,14 +80,6 @@ public class Schedule {
         this.cansell = cansell;
     }
 
-    public Boolean getApproved() {
-        return approved;
-    }
-
-    public void setApproved(Boolean approved) {
-        this.approved = approved;
-    }
-
     public String getNote() {
         return note;
     }
@@ -100,7 +91,7 @@ public class Schedule {
     public Schedule() {
     }
 
-    public Schedule(String id_place, String id_section, String id_header_schedule, Date date, Time time_start, Time time_end, Boolean cansell, Boolean approved, String note) {
+    public Schedule(String id_place, String id_section, String id_header_schedule, Date date, Time time_start, Time time_end, Boolean cansell, String note) {
         this.id_place = id_place;
         this.id_section = id_section;
         this.id_header_schedule = id_header_schedule;
@@ -108,7 +99,6 @@ public class Schedule {
         this.time_start = time_start;
         this.time_end = time_end;
         this.cansell = cansell;
-        this.approved = approved;
         this.note = note;
     }
 }

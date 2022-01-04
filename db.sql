@@ -29,7 +29,8 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public."HeaderSchedule" (
     id_header_schedule integer NOT NULL,
-    header_name character varying NOT NULL
+    header_name character varying NOT NULL,
+	approved boolean
 );
 
 
@@ -155,7 +156,6 @@ CREATE TABLE public."Schedule" (
     time_start time without time zone NOT NULL,
     time_end integer NOT NULL,
     cancell boolean,
-    approved boolean,
     note character varying
 );
 
