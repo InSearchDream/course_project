@@ -19,6 +19,7 @@ public class Learner {
     @JsonFormat(pattern="dd-MM-yyyy")
     private Date birthday;
     private String id_section;
+    private Boolean enrolled;
 
     public Long getId_learner() {
         return id_learner;
@@ -70,6 +71,14 @@ public class Learner {
 
     public void setId_section(String id_section) {
         this.id_section = id_section;
+    }
+
+    public Boolean getEnrolled() {
+        return enrolled;
+    }
+
+    public void setEnrolled(Boolean enrolled) {
+        this.enrolled = enrolled;
     }
 
     public Learner() {
