@@ -13,7 +13,7 @@ public class Schedule {
     private Long id_schedule;
     private String id_place;
     private String id_section;
-    private String id_header_schedule;
+    private String id_header_sсhedule;
     private Date date;
     private Time time_start;
     private Time time_end;
@@ -40,12 +40,12 @@ public class Schedule {
         this.id_section = id_section;
     }
 
-    public String getId_header_schedule() {
-        return id_header_schedule;
+    public String getId_header_sсhedule() {
+        return id_header_sсhedule;
     }
 
-    public void setId_header_schedule(String id_header_schedule) {
-        this.id_header_schedule = id_header_schedule;
+    public void setId_header_sсhedule(String id_header_sсhedule) {
+        this.id_header_sсhedule = id_header_sсhedule;
     }
 
     public Date getDate() {
