@@ -17,7 +17,7 @@ public class Schedule {
     private Date date;
     private Time time_start;
     private Time time_end;
-    private Boolean cansell;
+    private Boolean cancell;
     private String note;
 
     public Long getId_schedule() {
@@ -72,12 +72,12 @@ public class Schedule {
         this.time_end = time_end;
     }
 
-    public Boolean getCansell() {
-        return cansell;
+    public Boolean getCancell() {
+        return cancell;
     }
 
-    public void setCansell(Boolean cansell) {
-        this.cansell = cansell;
+    public void setCancell(Boolean cancell) {
+        this.cancell = cancell;
     }
 
     public String getNote() {
