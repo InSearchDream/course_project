@@ -10,7 +10,7 @@ class DataService {
         return axios.get(`${API_URL}/trainers/getTrainers`);
     }
 
-    retrieveTrainer(id_trainer) {
+/*    retrieveTrainer(id_trainer) {
         return axios.get(`${API_URL}/trainers/getTrainerById`);
     }
 
@@ -28,13 +28,14 @@ class DataService {
 
         return axios.post(`${API_URL}/trainers/addTrainer`, trainer);
     }
+*/
 	
 //Learner
     retrieveAllLearners() {
         return axios.get(`${API_URL}/learners/getLearners`);
     }
 
-    retrieveLearner(id_learner) {
+ /*   retrieveLearner(id_learner) {
         return axios.get(`${API_URL}/learners/getLearnerById`);
     }
 
@@ -52,13 +53,13 @@ class DataService {
 
         return axios.post(`${API_URL}/learners/addLearner`, learner);
     }
-	
+*/	
 //Place
     retrieveAllPlaces() {
         return axios.get(`${API_URL}/places/getPlaces`);
     }
 
-    retrievePlace(id_place) {
+ /*   retrievePlace(id_place) {
         return axios.get(`${API_URL}/places/getPlaceById`);
     }
 
@@ -76,13 +77,13 @@ class DataService {
 
         return axios.post(`${API_URL}/places/addPlace`, place);
     }
-	
+*/	
 //Section
     retrieveAllSections() {
         return axios.get(`${API_URL}/sections/getSections`);
     }
 
-    retrieveSection(id_section) {
+/*    retrieveSection(id_section) {
         return axios.get(`${API_URL}/sections/getSectionById`);
     }
 
@@ -100,13 +101,13 @@ class DataService {
 
         return axios.post(`${API_URL}/sections/addSection`, section);
     }
-	
+*/	
 //Schedule
     retrieveAllSchedules() {
-        return axios.get(`${API_URL}/schedules/geSchedules`);
+        return axios.get(`${API_URL}/schedules/getSchedules`);
     }
 
-    retrieveSchedule(id_schedule) {
+ /*   retrieveSchedule(id_schedule) {
         return axios.get(`${API_URL}/schedules/getScheduleById`);
     }
 
@@ -124,13 +125,13 @@ class DataService {
 
         return axios.post(`${API_URL}/schedules/addSchedule`, schedule);
     }
-	
+*/	
 //HeaderSchedule
     retrieveAllHeaderSchedules() {
         return axios.get(`${API_URL}/headerschedules/getHeaderSchedules`);
     }
 
-    retrieveHeaderSchedule(id_header_schedule) {
+/*    retrieveHeaderSchedule(id_header_schedule) {
         return axios.get(`${API_URL}/headerschedules/getHeaderScheduleById`);
     }
 
@@ -147,7 +148,7 @@ class DataService {
     createHeaderSchedule(headerschedule) {
 
         return axios.post(`${API_URL}/headerschedules/addHeaderSchedule`, headerschedule);
-    }
+    }*/
    
 }
 

@@ -1,5 +1,7 @@
+
 <template>
-  <div class="mainform">
+  <div id="app" align="center" class="mainform">
+	<img alt="Sport logo" src="../assets/sport_logo.png">
     <h1>{{ msg }}</h1> <!--Автоматически созданная страница, изменить под себя-->
     <p>
       For a guide and recipes on how to configure / customize this project,<br>

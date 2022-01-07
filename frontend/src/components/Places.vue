@@ -9,6 +9,7 @@
             <th>Место проведения</th>
 			<th>Обновить</th>
 			<th>Удалить</th>
+        </tr>
         </thead>
         <tbody>
           <tr v-for="place in places" v-bind:key="place.id_place">          

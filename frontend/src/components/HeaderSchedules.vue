@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     refreshHeaderSchedules() {
-      HeaderScheduleDataService.retrieveAllHeaderSchedules().then((res) => {
+      HeaderSchedulesDataService.retrieveAllHeaderSchedules().then((res) => {
         this.headerschedules = res.data;
       });
     },
@@ -59,7 +59,7 @@ export default {
       this.$router.push(`/headerschedule/${id_header_schedule}`);
     },
     deleteHeaderSchedule(id_header_schedule) {
-      HeaderScheduleDataService.deleteHeaderSchedule(id_header_schedule).then(() => {
+      HeaderSchedulesDataService.deleteHeaderSchedule(id_header_schedule).then(() => {
         this.refreshHeaderSchedules();
       });
     },
