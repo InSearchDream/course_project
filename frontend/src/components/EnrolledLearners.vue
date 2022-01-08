@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h3>Данные обо всех учениках</h3>
+    <h3>Данные о зачисленных в секции учениках</h3>
     <div v-if="message" class="alert alert-success">{{ this.message }}</div>
     <div class="container">
       <table class="table">
@@ -9,12 +9,9 @@
             <th>Фамилия</th>
 			<th>Имя</th>
 			<th>Отчество</th>
-            <th>Телефон</th>
             <th>Дата рождения</th>
 			<th>Секция</th>
 			<th>Зачислен</th>
-			<th>Обновить</th>
-			<th>Удалить</th>
           </tr>
         </thead>
         <tbody>
@@ -22,20 +19,9 @@
             <td>{{ learner.last_name }}</td>
 			<td>{{ learner.first_name }}</td>
 			<td>{{ learner.middle_name }}</td>
-            <td>{{ learner.phone }}</td>
             <td>{{ learner.birthday }}</td>
 			<td>{{ learner.id_section }}</td>
             <td>{{ learner.enrolled }}</td>
-			<td>
-              <button class="btn" v-on:click="updateLearner(learner.id_learner)">
-                Update
-              </button>
-            </td>
-            <td>
-              <button class="btn" v-on:click="deleteLearner(learner.id_learner)">
-                Delete
-              </button>
-            </td>
           </tr>
         </tbody>
       </table>
@@ -58,20 +44,12 @@ export default {
   },
   methods: {
     refreshLearners() {
-      LearnerDataService.retrieveAllLearners().then((res) => {
+      LearnerDataService.retrieveEnrolledLearners().then((res) => {
         this.learners = res.data;
       });
     },
     addLearner() {
       this.$router.push(`/learner/addLearner`);
-    },
-    updateLearner(id_learner) {
-      this.$router.push(`/learner/${id_learner}`);
-    },
-    deleteTrainer(id_learner) {
-      LearnerDataService.deleteLearner(id_learner).then(() => {
-        this.refreshLearners();
-      });
     },
   },
   created() {
