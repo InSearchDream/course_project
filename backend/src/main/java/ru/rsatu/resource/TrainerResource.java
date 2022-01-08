@@ -41,7 +41,6 @@ public class TrainerResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/updateTrainer")
     public Response updateTrainer(Trainer tr){
-       // System.out.println("trainer " + tr.getLast_name()+ ' ' + tr.getFirst_name());
         return Response.ok(ts.updateTrainer(tr)).build();
     }
 
