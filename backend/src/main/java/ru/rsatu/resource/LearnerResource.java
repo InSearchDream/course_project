@@ -23,6 +23,14 @@ public class LearnerResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Path("/getEnrolledLearners")
+    public Response getEnrolledLearners(){
+        return Response.ok(ls.getEnrolledLearners()).build();
+    }
+
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/getLearnerById")
     public Response getLearnerById(@QueryParam("id_learner") Long id_learner){
         return Response.ok(ls.getLearnerById(id_learner)).build();
@@ -41,7 +49,6 @@ public class LearnerResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/updateLearner")
     public Response updateLearner(Learner tr){
-       // System.out.println("Learner " + tr.getLast_name()+ ' ' + tr.getFirst_name());
         return Response.ok(ls.updateLearner(tr)).build();
     }
 
