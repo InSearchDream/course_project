@@ -5,7 +5,7 @@ Vue.use(Router);
 
 const router = new Router({
     mode: 'history',
-    routes: [	
+    routes: [	// вывод таблиц (для проверки, ненужные позже убрать)
 		{
             path: "/",
             name: "mainForm",
@@ -20,6 +20,11 @@ const router = new Router({
             path: "/learners/getLearners",
             name: "Learners",
             component: () => import("./components/Learners"),
+        },
+		{
+            path: "/learners/getEnrolledLearners",
+            name: "Learners",
+            component: () => import("./components/EnrolledLearners"),
         },
 		{
             path: "/sections/getSections",
