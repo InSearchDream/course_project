@@ -17,8 +17,8 @@ public class TrainerService {
     //вставка данных
     @Transactional
     public Trainer insertTrainer(Trainer tr) {
-        //em.merge(tr);
-        em.persist(tr);
+        em.merge(tr);
+        // em.persist(tr);
         em.flush();
         return tr;
     }

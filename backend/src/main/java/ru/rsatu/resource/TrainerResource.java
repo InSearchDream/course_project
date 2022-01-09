@@ -51,7 +51,7 @@ public class TrainerResource {
         ts.deleteTrainer(id_trainer);
         return Response.ok().build();
     }
-    
+
 
 
 }
