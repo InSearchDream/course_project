@@ -12,12 +12,12 @@ const router = new Router({
             component: () => import("./components/mainForm"),
         },
         {
-            path: "/trainers/getTrainers",
+            path: "/trainers",
             name: "Trainers",
             component: () => import("./components/Trainers"),
         },
 		{
-            path: "/learners/getLearners",
+            path: "/learners",
             name: "Learners",
             component: () => import("./components/Learners"),
         },
@@ -27,25 +27,30 @@ const router = new Router({
             component: () => import("./components/EnrolledLearners"),
         },
 		{
-            path: "/sections/getSections",
+            path: "/sections",
             name: "Sections",
             component: () => import("./components/Sections"),
         },
 		{
-            path: "/places/getPlaces",
+            path: "/places",
             name: "Places",
             component: () => import("./components/Places"),
         },
 		{
-            path: "/schedules/getSchedules",
+            path: "/schedules",
             name: "Schedules",
             component: () => import("./components/Schedules"),
         },
 		{
-            path: "/headerschedules/getHeaderSchedules",
+            path: "/headerschedules",
             name: "HeaderSchedules",
             component: () => import("./components/HeaderSchedules"),
-        },
+        },//add
+		{
+			path: "/trainers/:id_trainer",
+            name: "Trainer",
+            component: () => import("./components/addTrainer"),
+		},
     ]
 });
 

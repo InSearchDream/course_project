@@ -35,9 +35,9 @@
           </tr>
         </tbody>
       </table>
-     <!-- <div class="row">
+        <div class="row">
         <button class="btn" v-on:click="addTrainer()">Добавить</button>
-      </div>-->
+      </div>
     </div>
   </div>
 </template>
@@ -59,10 +59,10 @@ export default {
       });
     },
     addTrainer() {
-      this.$router.push(`/trainer/addTrainer`);
+      this.$router.push(`/trainers/-1`);
     },
     updateTrainer(id_trainer) {
-      this.$router.push(`/trainer/${id_trainer}`);
+      this.$router.push(`/trainers/${id_trainer}`);
     },
     deleteTrainer(id_trainer) {
       TrainerDataService.deleteTrainer(id_trainer).then(() => {

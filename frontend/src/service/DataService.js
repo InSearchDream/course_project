@@ -4,31 +4,31 @@ import axios from 'axios'
 const API_URL = 'http://localhost:8080/'
 
 
-class DataService {
+class DataService { // delete и update обновить для всех таблиц так же как Trainer
 //Trainer
     retrieveAllTrainers() {
         return axios.get(`${API_URL}/trainers/getTrainers`);
     }
 
-/*    retrieveTrainer(id_trainer) {
-        return axios.get(`${API_URL}/trainers/getTrainerById`);
+    retrieveTrainer(id_trainer) {
+        return axios.get(`${API_URL}/trainers/getTrainerById`, id_trainer);
     }
 
     deleteTrainer(id_trainer) {
 
-       return axios.delete(`${API_URL}/trainers/deleteTrainer`);
+       return axios.delete(`${API_URL}/trainers/${id_trainer}`);
     }
 
     updateTrainer(id_trainer, trainer) {
 
-        return axios.put(`${API_URL}/trainers/updateTrainer`, trainer);
+        return axios.post(`${API_URL}/trainers/updateTrainer`, trainer);
     }
 
     createTrainer(trainer) {
 
-        return axios.post(`${API_URL}/trainers/addTrainer`, trainer);
+        return axios.post(`${API_URL}/trainers/insertTrainer`, trainer);
     }
-*/
+
 	
 //Learner
     retrieveAllLearners() {
