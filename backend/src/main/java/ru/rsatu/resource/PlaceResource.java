@@ -46,8 +46,8 @@ public class PlaceResource {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/deletePlace")
-    public Response deletePlace(@QueryParam("id_place") Long id_place){
+    @Path("/{id_place}}")
+    public Response deletePlace(@PathParam("id_place") Long id_place){
         ps.deletePlace(id_place);
         return Response.ok().build();
     }

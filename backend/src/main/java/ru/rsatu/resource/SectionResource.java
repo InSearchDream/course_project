@@ -46,8 +46,8 @@ public class SectionResource {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/deleteSection")
-    public Response deleteSection(@QueryParam("id_section") Long id_section){
+    @Path("//{id_section}")
+    public Response deleteSection(@PathParam("id_section") Long id_section){
         ss.deleteSection(id_section);
         return Response.ok().build();
     }

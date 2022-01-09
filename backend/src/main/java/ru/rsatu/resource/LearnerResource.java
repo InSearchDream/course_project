@@ -54,8 +54,8 @@ public class LearnerResource {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/deleteLearner")
-    public Response deleteLearner(@QueryParam("id_learner") Long id_learner){
+    @Path("/{id_learner}")
+    public Response deleteLearner(@PathParam("id_learner") Long id_learner){
         ls.deleteLearner(id_learner);
         return Response.ok().build();
     }

@@ -44,12 +44,14 @@ public class TrainerResource {
         return Response.ok(ts.updateTrainer(tr)).build();
     }
 
-    @POST
+    @DELETE
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/deleteTrainer")
-    public Response deleteTrainer(@QueryParam("id_trainer") Long id_trainer){
+    @Path("/{id_trainer}")
+    public Response deleteTrainer(@PathParam("id_trainer") Long id_trainer){
         ts.deleteTrainer(id_trainer);
         return Response.ok().build();
     }
+    
+
 
 }

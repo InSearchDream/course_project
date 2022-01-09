@@ -46,8 +46,8 @@ public class ScheduleResource {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/deleteSchedule")
-    public Response deleteSchedule(@QueryParam("id_schedule") Long id_schedule){
+    @Path("/{id_schedule}")
+    public Response deleteSchedule(@PathParam("id_schedule") Long id_schedule){
         ssch.deleteSchedule(id_schedule);
         return Response.ok().build();
     }
