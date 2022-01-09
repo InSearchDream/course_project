@@ -29,17 +29,17 @@ public class TrainerResource {
     }
 
     @POST
+    @Path("/insertTrainer")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/insertTrainer")
     public Response insertTrainer(Trainer tr){
         return Response.ok(ts.insertTrainer(tr)).build();
     }
 
     @POST
+    @Path("/updateTrainer")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/updateTrainer")
     public Response updateTrainer(Trainer tr){
         return Response.ok(ts.updateTrainer(tr)).build();
     }

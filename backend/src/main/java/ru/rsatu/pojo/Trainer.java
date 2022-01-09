@@ -16,7 +16,7 @@ public class Trainer {
     private String first_name;
     private String middle_name;
     private String phone;
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date birthday;
 
     public Long getId_trainer() {

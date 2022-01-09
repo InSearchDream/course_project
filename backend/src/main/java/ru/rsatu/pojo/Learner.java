@@ -16,7 +16,7 @@ public class Learner {
     private String first_name;
     private String middle_name;
     private String phone;
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date birthday;
     private String id_section;
     private Boolean enrolled;
