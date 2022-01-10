@@ -29,9 +29,9 @@
           </tr>
         </tbody>
       </table>
-     <!-- <div class="row">
+      <div class="row">
         <button class="btn" v-on:click="addHeaderSchedule()">Добавить</button>
-      </div>-->
+      </div>
     </div>
   </div>
 </template>
@@ -53,7 +53,7 @@ export default {
       });
     },
     addHeaderSchedule() {
-      this.$router.push(`/headerschedule/addHeaderSchedule`);
+      this.$router.push(`/headerschedule/-1`);
     },
     updateHeaderSchedule(id_header_schedule) {
       this.$router.push(`/headerschedule/${id_header_schedule}`);

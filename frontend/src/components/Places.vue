@@ -27,9 +27,9 @@
           </tr>
         </tbody>
       </table>
-     <!-- <div class="row">
+      <div class="row">
         <button class="btn" v-on:click="addPlace()">Добавить</button>
-      </div>-->
+      </div>
     </div>
   </div>
 </template>
@@ -51,7 +51,7 @@ export default {
       });
     },
     addPlace() {
-      this.$router.push(`/place/addPlace`);
+      this.$router.push(`/place/-1`);
     },
     updatePlace(id_place) {
       this.$router.push(`/place/${id_place}`);

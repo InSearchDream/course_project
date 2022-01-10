@@ -25,9 +25,9 @@
           </tr>
         </tbody>
       </table>
-     <!-- <div class="row">
+      <div class="row">
         <button class="btn" v-on:click="addLearner()">Добавить</button>
-      </div>-->
+      </div>
     </div>
   </div>
 </template>
@@ -49,7 +49,7 @@ export default {
       });
     },
     addLearner() {
-      this.$router.push(`/learner/addLearner`);
+      this.$router.push(`/learner/-1`);
     },
   },
   created() {

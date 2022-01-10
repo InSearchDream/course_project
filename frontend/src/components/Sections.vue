@@ -29,9 +29,9 @@
           </tr>
         </tbody>
       </table>
-     <!-- <div class="row">
+      <div class="row">
         <button class="btn" v-on:click="addSection()">Добавить</button>
-      </div>-->
+      </div>
     </div>
   </div>
 </template>
@@ -53,7 +53,7 @@ export default {
       });
     },
     addSection() {
-      this.$router.push(`/section/addSection`);
+      this.$router.push(`/section/-1`);
     },
     updateSection(id_section) {
       this.$router.push(`/section/${id_section}`);

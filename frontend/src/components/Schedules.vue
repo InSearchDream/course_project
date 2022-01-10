@@ -41,9 +41,9 @@
           </tr>
         </tbody>
       </table>
-     <!-- <div class="row">
+      <div class="row">
         <button class="btn" v-on:click="addSchedule()">Добавить</button>
-      </div>-->
+      </div>
     </div>
   </div>
 </template>
@@ -65,7 +65,7 @@ export default {
       });
     },
     addSchedule() {
-      this.$router.push(`/schedule/addSchedule`);
+      this.$router.push(`/schedule/-1`);
     },
     updateSchedule(id_schedule) {
       this.$router.push(`/schedule/${id_schedule}`);
