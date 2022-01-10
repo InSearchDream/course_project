@@ -1,0 +1,74 @@
+<template>
+  <div>
+    <h3>Добавление места проведения занятия</h3>
+    <div class="container">
+      <form @submit="validateAndSubmit">
+        <div v-if="errors.length">
+          <div
+            class="alert alert-danger"
+            v-bind:key="index"
+            v-for="(error, index) in errors"
+          >
+            {{ error }}
+          </div>
+        </div>
+		<fieldset class="form-group">
+          <label>Место проведения </label>
+          <input type="text" class="form-control" v-model="place_name" />
+        </fieldset>
+        <button class="btn" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+</template>
+<script>
+import PlaceDataService from "../service/DataService";
+
+export default { // добавление не работает
+  name: "Place",
+  data() {
+    return {
+      place_name: "",
+      errors: [],
+    };
+  },
+  computed: {
+    id_place() {
+      return this.$route.params.id_place;
+    },
+  },
+  methods: {
+    refreshPlaceDetails() {
+      PlaceDataService.retrievePlace(this.id_place).then((res) => {
+        this.place_name = res.data.place_name;
+      });
+    },
+    validateAndSubmit(e) {
+      e.preventDefault();
+      this.errors = [];
+/*      if (!this.place_name) {
+        this.errors.push("Введите место проведения");
+      }*/
+      if (this.errors.length === 0) {
+        if (this.id_place == -1) {
+          PlaceDataService.createPlace({
+            place_name: this.place_name,
+          }).then(() => {
+            this.$router.push("/trainers");
+          });
+        } else {
+          PlaceDataService.updatePlace(this.id_place, {
+            id_place: this.id_place,
+            place_name: this.place_name,
+          }).then(() => {
+            this.$router.push("/trainers");
+          });
+        }
+      }
+    },
+  },
+  created() {
+    this.refreshPlaceDetails();
+  },
+};
+</script>
