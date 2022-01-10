@@ -22,11 +22,6 @@ const router = new Router({
             component: () => import("./components/Learners"),
         },
 		{
-            path: "/learners/getEnrolledLearners",
-            name: "Learners",
-            component: () => import("./components/EnrolledLearners"),
-        },
-		{
             path: "/sections",
             name: "Sections",
             component: () => import("./components/Sections"),
@@ -50,6 +45,31 @@ const router = new Router({
 			path: "/trainers/:id_trainer",
             name: "Trainer",
             component: () => import("./components/addTrainer"),
+		},
+		{
+			path: "/trainers/:id_learner",
+            name: "Learner",
+            component: () => import("./components/addLearner"),
+		},
+		{
+			path: "/trainers/:id_section",
+            name: "Section",
+            component: () => import("./components/addSections"),
+		},
+		{
+			path: "/trainers/:id_place",
+            name: "Place",
+            component: () => import("./components/addPlace"),
+		},
+		{
+			path: "/trainers/:id_schedule",
+            name: "Schedule",
+            component: () => import("./components/addSchedule"),
+		},
+		{
+			path: "/trainers/:id_header_schedule",
+            name: "HeaderSchedules",
+            component: () => import("./components/addHeaderSchedules"),
 		},
     ]
 });
