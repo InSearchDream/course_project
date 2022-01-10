@@ -57,7 +57,7 @@ export default { // добавление не работает
       middle_name: "",
       phone: "",
       birthday: "",
-	  id_section: "",
+      id_section: "",
       enrolled: "",
       errors: [],
     };

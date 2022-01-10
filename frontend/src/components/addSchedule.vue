@@ -61,7 +61,7 @@ export default { // добавление не работает
       id_header_schedule: "",
       date: "",
       time_start: "",
-	  time_end: "",
+      time_end: "",
       cancell: "",
       note: "",
       errors: [],
