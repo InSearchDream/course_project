@@ -35,10 +35,6 @@ class DataService { // не работает add
         return axios.get(`${API_URL}/learners/getLearners`);
     }
 	
-	retrieveEnrolledLearners() {
-        return axios.get(`${API_URL}/learners/getEnrolledLearners`);
-    }
-
     retrieveLearner(id_learner) {
         return axios.get(`${API_URL}/learners/getLearnerById`, id_learner);
     }
