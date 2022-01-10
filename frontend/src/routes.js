@@ -54,7 +54,7 @@ const router = new Router({
 		{
 			path: "/trainers/:id_section",
             name: "Section",
-            component: () => import("./components/addSections"),
+            component: () => import("./components/addSection"),
 		},
 		{
 			path: "/trainers/:id_place",
@@ -69,7 +69,7 @@ const router = new Router({
 		{
 			path: "/trainers/:id_header_schedule",
             name: "HeaderSchedules",
-            component: () => import("./components/addHeaderSchedules"),
+            component: () => import("./components/addHeaderSchedule"),
 		},
     ]
 });
