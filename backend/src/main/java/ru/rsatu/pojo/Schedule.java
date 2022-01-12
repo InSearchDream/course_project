@@ -11,9 +11,9 @@ public class Schedule {
     @SequenceGenerator(name = "scheduleSeq", sequenceName = "schedule_id_seq", allocationSize = 1, initialValue = 1)
     @GeneratedValue(generator = "scheduleSeq")
     private Long id_schedule;
-    private String id_place;
-    private String id_section;
-    private String id_header_schedule;
+    private Long id_place;
+    private Long id_section;
+    private Long id_header_schedule;
     private Date date;
     private Time time_start;
     private Time time_end;
@@ -24,27 +24,27 @@ public class Schedule {
         return id_schedule;
     }
 
-    public String getId_place() {
+    public Long getId_place() {
         return id_place;
     }
 
-    public void setId_place(String id_place) {
+    public void setId_place(Long id_place) {
         this.id_place = id_place;
     }
 
-    public String getId_section() {
+    public Long getId_section() {
         return id_section;
     }
 
-    public void setId_section(String id_section) {
+    public void setId_section(Long id_section) {
         this.id_section = id_section;
     }
 
-    public String getId_header_schedule() {
+    public Long getId_header_schedule() {
         return id_header_schedule;
     }
 
-    public void setId_header_schedule(String id_header_schedule) {
+    public void setId_header_schedule(Long id_header_schedule) {
         this.id_header_schedule = id_header_schedule;
     }
 

@@ -10,7 +10,7 @@ public class Section {
     @GeneratedValue(generator = "sectionSeq")
     private Long id_section;
     private String section_name;
-    private String id_trainer;
+    private Long id_trainer;
 
     public Long getId_section() {
         return id_section;
@@ -24,11 +24,11 @@ public class Section {
         this.section_name = section_name;
     }
 
-    public String getId_trainer() {
+    public Long getId_trainer() {
         return id_trainer;
     }
 
-    public void setId_trainer(String id_trainer) {
+    public void setId_trainer(Long id_trainer) {
         this.id_trainer = id_trainer;
     }
 

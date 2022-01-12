@@ -12,18 +12,18 @@ public class Learner extends People {
     @SequenceGenerator(name = "learnerSeq", sequenceName = "learner_id_seq", allocationSize = 1, initialValue = 1)
     @GeneratedValue(generator = "learnerSeq")
     private Long id_learner;
-    private String id_section;
+    private Long id_section;
     private Boolean enrolled;
 
     public Long getId_learner() {
         return id_learner;
     }
 
-    public String getId_section() {
+    public Long getId_section() {
         return id_section;
     }
 
-    public void setId_section(String id_section) {
+    public void setId_section(Long id_section) {
         this.id_section = id_section;
     }
 
