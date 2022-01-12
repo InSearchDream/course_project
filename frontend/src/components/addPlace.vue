@@ -24,7 +24,7 @@
 <script>
 import PlaceDataService from "../service/DataService";
 
-export default { // добавление не работает
+export default { 
   name: "Place",
   data() {
     return {
@@ -54,14 +54,14 @@ export default { // добавление не работает
           PlaceDataService.createPlace({
             place_name: this.place_name,
           }).then(() => {
-            this.$router.push("/trainers");
+            this.$router.push("/places");
           });
         } else {
           PlaceDataService.updatePlace(this.id_place, {
             id_place: this.id_place,
             place_name: this.place_name,
           }).then(() => {
-            this.$router.push("/trainers");
+            this.$router.push("/places");
           });
         }
       }

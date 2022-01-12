@@ -52,7 +52,7 @@
 <script>
 import ScheduleDataService from "../service/DataService";
 
-export default { // добавление не работает
+export default { 
   name: "Schedule",
   data() {
     return {

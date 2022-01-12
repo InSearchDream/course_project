@@ -28,7 +28,7 @@
 <script>
 import SectionDataService from "../service/DataService";
 
-export default { // добавление не работает
+export default { 
   name: "Section",
   data() {
     return {

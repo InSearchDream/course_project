@@ -40,7 +40,7 @@
 <script>
 import TrainerDataService from "../service/DataService";
 
-export default { // добавление не работает
+export default { 
   name: "Trainer",
   data() {
     return {
