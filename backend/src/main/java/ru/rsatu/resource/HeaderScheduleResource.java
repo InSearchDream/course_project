@@ -44,7 +44,7 @@ public class HeaderScheduleResource {
         return Response.ok(shs.updateHeaderSchedule(tr)).build();
     }
 
-    @POST
+    @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id_header_schedule}")
     public Response deleteHeaderSchedule(@PathParam("id_header_schedule") Long id_header_schedule){

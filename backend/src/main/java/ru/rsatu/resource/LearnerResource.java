@@ -52,7 +52,7 @@ public class LearnerResource {
         return Response.ok(ls.updateLearner(tr)).build();
     }
 
-    @POST
+    @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id_learner}")
     public Response deleteLearner(@PathParam("id_learner") Long id_learner){
