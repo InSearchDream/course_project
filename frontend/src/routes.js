@@ -47,27 +47,27 @@ const router = new Router({
             component: () => import("./components/addTrainer"),
 		},
 		{
-			path: "/trainers/:id_learner",
+			path: "/leaners/:id_learner",
             name: "Learner",
             component: () => import("./components/addLearner"),
 		},
 		{
-			path: "/trainers/:id_section",
+			path: "/sections/:id_section",
             name: "Section",
             component: () => import("./components/addSection"),
 		},
 		{
-			path: "/trainers/:id_place",
+			path: "/places/:id_place",
             name: "Place",
             component: () => import("./components/addPlace"),
 		},
 		{
-			path: "/trainers/:id_schedule",
+			path: "/schedules/:id_schedule",
             name: "Schedule",
             component: () => import("./components/addSchedule"),
 		},
 		{
-			path: "/trainers/:id_header_schedule",
+			path: "/headerschedules/:id_header_schedule",
             name: "HeaderSchedules",
             component: () => import("./components/addHeaderSchedule"),
 		},
