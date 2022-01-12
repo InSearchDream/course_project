@@ -30,7 +30,7 @@ class DataService { // не работает add
     }
 
 	
-//Learner
+//Learner-------------------
     retrieveAllLearners() {
         return axios.get(`${API_URL}/learners/getLearners`);
     }
@@ -70,7 +70,7 @@ class DataService { // не работает add
 
     updatePlace(id_place, place) {
 
-        return axios.put(`${API_URL}/places/updatePlace`, place);
+        return axios.post(`${API_URL}/places/updatePlace`, place);
     }
 
     createPlace(place) {
@@ -78,7 +78,7 @@ class DataService { // не работает add
         return axios.post(`${API_URL}/places/insertPlace`, place);
     }
 	
-//Section
+//Section--------------------
     retrieveAllSections() {
         return axios.get(`${API_URL}/sections/getSections`);
     }
@@ -94,7 +94,7 @@ class DataService { // не работает add
 
     updateSection(id_section, section) {
 
-        return axios.put(`${API_URL}/sections/updateSection`, section);
+        return axios.post(`${API_URL}/sections/updateSection`, section);
     }
 
     createSection(section) {
@@ -102,7 +102,7 @@ class DataService { // не работает add
         return axios.post(`${API_URL}/sections/insertSection`, section);
     }
 	
-//Schedule
+//Schedule-----------------
     retrieveAllSchedules() {
         return axios.get(`${API_URL}/schedules/getSchedules`);
     }
@@ -118,7 +118,7 @@ class DataService { // не работает add
 
     updateSchedule(id_schedule, schedule) {
 
-        return axios.put(`${API_URL}/schedules/updateSchedule`, schedule);
+        return axios.post(`${API_URL}/schedules/updateSchedule`, schedule);
     }
 
     createSchedule(schedule) {
@@ -142,7 +142,7 @@ class DataService { // не работает add
 
     updateHeaderSchedule(id_header_schedule, headerschedule) {
 
-        return axios.put(`${API_URL}/headerschedules/updateHeaderSchedule`, headerschedule);
+        return axios.post(`${API_URL}/headerschedules/updateHeaderSchedule`, headerschedule);
     }
 
     createHeaderSchedule(headerschedule) {
