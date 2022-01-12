@@ -43,6 +43,7 @@ public class Section {
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "section")
@@ -52,9 +53,14 @@ public class Section {
     @GeneratedValue(generator = "sectionSeq")
     private Long id_section;
     private String section_name;
-    @ManyToOne
+   // @ManyToOne
+   // @JsonIgnore
+   // private Trainer id_trainer;
+   private Long id_trainer;
+
+    @ManyToMany(mappedBy = "sections")
     @JsonIgnore
-    private Trainer id_trainer;
+    private Collection<Learner> learners;
 
     public Long getId_section() {
         return id_section;
@@ -68,24 +74,29 @@ public class Section {
         this.section_name = section_name;
     }
 
-    public Trainer getId_trainer() {
-        return id_trainer;
+  //  public Trainer getId_trainer() {
+  //      return id_trainer;
+  //  }
+  public Long getId_trainer() {
+      return id_trainer;
+  }
+
+    public void setId_trainer(Long id_trainer) {
+        this.id_trainer = id_trainer;
     }
 
-    public void setId_trainer(Trainer id_trainer) {
-        this.id_trainer = id_trainer;
+  //  public void setId_trainer(Trainer id_trainer) {
+  //      this.id_trainer = id_trainer;
+  //  }
+
+    public Collection<Learner> getLearners() {
+        return learners;
+    }
+
+    public void setLearners(Collection<Learner> learners) {
+        this.learners = learners;
     }
 
     public Section() {
     }
-
-    public Section(Long id_section,
-                   String section_name, Trainer id_trainer)
-    {
-        super( );
-        this.id_section = id_section;
-        this.section_name = section_name;
-        this.id_trainer = id_trainer;
-    }
-
 }*/

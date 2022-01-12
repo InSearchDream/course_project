@@ -47,6 +47,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 
 @Entity
 @Table(name = "learner")
@@ -56,21 +57,25 @@ public class Learner extends People {
     @GeneratedValue(generator = "learnerSeq")
     private Long id_learner;
 
-    @ManyToOne
-    @JsonIgnore  // чтобы данное поле не конвертировалось в json
-    private Section id_section;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "section_learner",
+            joinColumns = @JoinColumn(name = "id_learner"),
+            inverseJoinColumns = @JoinColumn(name = "id_section")
+    )
+    public Collection<Section> sections;
+
     private Boolean enrolled;
 
     public Long getId_learner() {
         return id_learner;
     }
 
-    public Section getId_section() {
-        return id_section;
+    public Collection<Section> getSections() {
+        return sections;
     }
 
-    public void setId_section(Section id_section) {
-        this.id_section = id_section;
+    public void setSections(Collection<Section> sections) {
+        this.sections = sections;
     }
 
     public Boolean getEnrolled() {
