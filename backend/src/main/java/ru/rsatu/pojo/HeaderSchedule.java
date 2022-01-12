@@ -1,13 +1,13 @@
 package ru.rsatu.pojo;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "headerschedule")
 public class HeaderSchedule {
     @Id
+    @SequenceGenerator(name = "headerscheduleSeq", sequenceName = "headerschedule_id_seq", allocationSize = 1, initialValue = 1)
+    @GeneratedValue(generator = "headerscheduleSeq")
     private Long id_header_schedule;
     private String header_name;
     private Boolean approved;

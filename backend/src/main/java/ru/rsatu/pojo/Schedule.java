@@ -1,8 +1,6 @@
 package ru.rsatu.pojo;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Time;
 import java.sql.Date;
 
@@ -10,6 +8,8 @@ import java.sql.Date;
 @Table(name = "schedule")
 public class Schedule {
     @Id
+    @SequenceGenerator(name = "scheduleSeq", sequenceName = "schedule_id_seq", allocationSize = 1, initialValue = 1)
+    @GeneratedValue(generator = "scheduleSeq")
     private Long id_schedule;
     private String id_place;
     private String id_section;

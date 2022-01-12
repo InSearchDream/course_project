@@ -1,13 +1,13 @@
 package ru.rsatu.pojo;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "section")
 public class Section {
     @Id
+    @SequenceGenerator(name = "sectionSeq", sequenceName = "section_id_seq", allocationSize = 1, initialValue = 1)
+    @GeneratedValue(generator = "sectionSeq")
     private Long id_section;
     private String section_name;
     private String id_trainer;
