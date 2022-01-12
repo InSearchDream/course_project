@@ -63,10 +63,10 @@ export default {
       });
     },
     addLearner() {
-      this.$router.push(`/learner/-1`);
+      this.$router.push(`/learners/-1`);
     },
     updateLearner(id_learner) {
-      this.$router.push(`/learner/${id_learner}`);
+      this.$router.push(`/learners/${id_learner}`);
     },
     deleteTrainer(id_learner) {
       LearnerDataService.deleteLearner(id_learner).then(() => {

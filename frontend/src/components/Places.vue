@@ -51,10 +51,10 @@ export default {
       });
     },
     addPlace() {
-      this.$router.push(`/place/-1`);
+      this.$router.push(`/places/-1`);
     },
     updatePlace(id_place) {
-      this.$router.push(`/place/${id_place}`);
+      this.$router.push(`/places/${id_place}`);
     },
     deletePlace(id_place) {
       PlaceDataService.deletePlace(id_place).then(() => {

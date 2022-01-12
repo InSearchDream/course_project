@@ -65,10 +65,10 @@ export default {
       });
     },
     addSchedule() {
-      this.$router.push(`/schedule/-1`);
+      this.$router.push(`/schedules/-1`);
     },
     updateSchedule(id_schedule) {
-      this.$router.push(`/schedule/${id_schedule}`);
+      this.$router.push(`/schedules/${id_schedule}`);
     },
     deleteSchedule(id_schedule) {
       ScheduleDataService.deleteSchedule(id_schedule).then(() => {

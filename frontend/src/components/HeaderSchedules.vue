@@ -53,10 +53,10 @@ export default {
       });
     },
     addHeaderSchedule() {
-      this.$router.push(`/headerschedule/-1`);
+      this.$router.push(`/headerschedules/-1`);
     },
     updateHeaderSchedule(id_header_schedule) {
-      this.$router.push(`/headerschedule/${id_header_schedule}`);
+      this.$router.push(`/headerschedules/${id_header_schedule}`);
     },
     deleteHeaderSchedule(id_header_schedule) {
       HeaderSchedulesDataService.deleteHeaderSchedule(id_header_schedule).then(() => {

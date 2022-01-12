@@ -53,10 +53,10 @@ export default {
       });
     },
     addSection() {
-      this.$router.push(`/section/-1`);
+      this.$router.push(`/sections/-1`);
     },
     updateSection(id_section) {
-      this.$router.push(`/section/${id_section}`);
+      this.$router.push(`/sections/${id_section}`);
     },
     deleteSection(id_section) {
       SectionDataService.deleteSection(id_section).then(() => {
