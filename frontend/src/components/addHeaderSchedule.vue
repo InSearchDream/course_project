@@ -1,9 +1,18 @@
 <template>
   <div>
-    <h3>Добавление заголовка расписания</h3>
+    <h3>Заполнение заголовка расписания</h3>
     <div class="container">
-      <form @submit="validateAndSubmit">
-        <div v-if="errors.length">
+      <form @submit="validateAndSubmit">        
+		<fieldset class="form-group">
+          <label>Заголовок* </label>
+          <input type="text" class="form-control" v-model="header_name" />
+        </fieldset>
+		<fieldset class="form-group">
+          <label>Утверждено </label>
+          <input type="text" class="form-control" v-model="approved" />
+        </fieldset>
+        <button class="btn" type="submit">Сохранить</button>
+		<div v-if="errors.length">
           <div
             class="alert alert-danger"
             v-bind:key="index"
@@ -12,15 +21,6 @@
             {{ error }}
           </div>
         </div>
-		<fieldset class="form-group">
-          <label>Заголовок </label>
-          <input type="text" class="form-control" v-model="header_name" />
-        </fieldset>
-		<fieldset class="form-group">
-          <label>Утверждено </label>
-          <input type="text" class="form-control" v-model="approved" />
-        </fieldset>
-        <button class="btn" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
@@ -28,7 +28,7 @@
 <script>
 import HeaderScheduleDataService from "../service/DataService";
 
-export default { // добавление не работает
+export default { 
   name: "HeaderSchedule",
   data() {
     return {
@@ -53,7 +53,7 @@ export default { // добавление не работает
       e.preventDefault();
       this.errors = [];
 /*      if (!this.header_name) {
-        this.errors.push("Введите заголовок");
+        this.errors.push("Заполните обязательные поля (*)"); 
       }
 */
       if (this.errors.length === 0) {

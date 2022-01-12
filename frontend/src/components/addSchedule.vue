@@ -1,39 +1,30 @@
 <template>
   <div>
-    <h3>Добавление записи в расписание</h3>
+    <h3>Заполнение расписания</h3>
     <div class="container">
       <form @submit="validateAndSubmit">
-        <div v-if="errors.length">
-          <div
-            class="alert alert-danger"
-            v-bind:key="index"
-            v-for="(error, index) in errors"
-          >
-            {{ error }}
-          </div>
-        </div>
-		<fieldset class="form-group">
-          <label>Место проведения </label>
+        <fieldset class="form-group">
+          <label>Место проведения* </label>
           <input type="text" class="form-control" v-model="id_place" />
         </fieldset>
 		<fieldset class="form-group">
-          <label>Секция </label>
+          <label>Секция* </label>
           <input type="text" class="form-control" v-model="id_section" />
         </fieldset>
 		<fieldset class="form-group">
-          <label>Заголовок </label>
+          <label>Заголовок* </label>
           <input type="text" class="form-control" v-model="id_header_schedule" />
         </fieldset>
         <fieldset class="form-group">
-          <label>Дата </label>
+          <label>Дата* </label>
           <input type="text" class="form-control" v-model="date" />
         </fieldset>
         <fieldset class="form-group">
-          <label>Время начала </label>
+          <label>Время начала* </label>
           <input type="text" class="form-control" v-model="time_start" />
         </fieldset>
 		<fieldset class="form-group">
-          <label>Время окончания </label>
+          <label>Время окончания* </label>
           <input type="text" class="form-control" v-model="time_end" />
         </fieldset>
         <fieldset class="form-group">
@@ -45,6 +36,15 @@
           <input type="text" class="form-control" v-model="note" />
         </fieldset>
         <button class="btn" type="submit">Сохранить</button>
+		<div v-if="errors.length">
+          <div
+            class="alert alert-danger"
+            v-bind:key="index"
+            v-for="(error, index) in errors"
+          >
+            {{ error }}
+          </div>
+        </div>
       </form>
     </div>
   </div>
@@ -88,11 +88,8 @@ export default {
     validateAndSubmit(e) {
       e.preventDefault();
       this.errors = [];
-/*      if (!this.last_name) {					выбрать нужные обязательные поля
-        this.errors.push("Введите фамилию"); (во всех таблицах)обозначить обязательные поля * и выдавать общее оповещение (не все поля заполнены)
-      }
-      if (!this.first_name) {
-        this.errors.push("Введите имя");
+/*    if ((!this.id_place)||(!this.id_section)||(!this.id_header_schedule)||(!this.date)||(!this.time_start)||(!this.time_end)) {
+        this.errors.push("Заполните обязательные поля (*)"); 
       }*/
       if (this.errors.length === 0) {
         if (this.id_schedule == -1) {

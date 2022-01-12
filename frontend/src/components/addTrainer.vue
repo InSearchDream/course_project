@@ -1,23 +1,14 @@
 <template>
   <div>
-    <h3>Добавление тренера</h3>
+    <h3>Заполнение информации о тренере</h3>
     <div class="container">
       <form @submit="validateAndSubmit">
-        <div v-if="errors.length">
-          <div
-            class="alert alert-danger"
-            v-bind:key="index"
-            v-for="(error, index) in errors"
-          >
-            {{ error }}
-          </div>
-        </div>
 		<fieldset class="form-group">
-          <label>Фамилия </label>
+          <label>Фамилия* </label>
           <input type="text" class="form-control" v-model="last_name" />
         </fieldset>
 		<fieldset class="form-group">
-          <label>Имя </label>
+          <label>Имя* </label>
           <input type="text" class="form-control" v-model="first_name" />
         </fieldset>
 		<fieldset class="form-group">
@@ -33,6 +24,15 @@
           <input type="text" class="form-control" v-model="birthday" />
         </fieldset>
         <button class="btn" type="submit">Сохранить</button>
+		<div v-if="errors.length">
+          <div
+            class="alert alert-danger"
+            v-bind:key="index"
+            v-for="(error, index) in errors"
+          >
+            {{ error }}
+          </div>
+        </div>
       </form>
     </div>
   </div>
@@ -70,12 +70,10 @@ export default {
     validateAndSubmit(e) {
       e.preventDefault();
       this.errors = [];
-/*      if (!this.last_name) {
-        this.errors.push("Введите фамилию"); (во всех таблицах)обозначить обязательные поля * и выдавать общее оповещение (не все поля заполнены) 
+      if ((!this.last_name)||(!this.first_name)) {
+        this.errors.push("Заполните обязательные поля (*)"); 
       }
-      if (!this.first_name) {
-        this.errors.push("Введите имя");
-      }*/
+
       if (this.errors.length === 0) {
         if (this.id_trainer == -1) {
           TrainerDataService.createTrainer({

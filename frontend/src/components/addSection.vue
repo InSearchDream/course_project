@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Добавление секции</h3>
+    <h3>Заполнение информации о секции</h3>
     <div class="container">
       <form @submit="validateAndSubmit">
         <div v-if="errors.length">

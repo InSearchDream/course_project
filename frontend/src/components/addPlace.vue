@@ -1,9 +1,14 @@
 <template>
   <div>
-    <h3>Добавление места проведения занятия</h3>
+    <h3>Заполнение информации о месте проведения занятия</h3>
     <div class="container">
       <form @submit="validateAndSubmit">
-        <div v-if="errors.length">
+		<fieldset class="form-group">
+          <label>Место проведения* </label>
+          <input type="text" class="form-control" v-model="place_name" />
+        </fieldset>
+        <button class="btn" type="submit">Сохранить</button>
+		<div v-if="errors.length">
           <div
             class="alert alert-danger"
             v-bind:key="index"
@@ -12,11 +17,6 @@
             {{ error }}
           </div>
         </div>
-		<fieldset class="form-group">
-          <label>Место проведения </label>
-          <input type="text" class="form-control" v-model="place_name" />
-        </fieldset>
-        <button class="btn" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
@@ -47,7 +47,7 @@ export default {
       e.preventDefault();
       this.errors = [];
 /*      if (!this.place_name) {
-        this.errors.push("Введите место проведения");
+        this.errors.push("Заполните обязательные поля (*)");
       }*/
       if (this.errors.length === 0) {
         if (this.id_place == -1) {

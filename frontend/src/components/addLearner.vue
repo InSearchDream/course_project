@@ -1,23 +1,14 @@
 <template>
   <div>
-    <h3>Добавление ученика</h3>
+    <h3>Заполнение информации об ученике</h3>
     <div class="container">
       <form @submit="validateAndSubmit">
-        <div v-if="errors.length">
-          <div
-            class="alert alert-danger"
-            v-bind:key="index"
-            v-for="(error, index) in errors"
-          >
-            {{ error }}
-          </div>
-        </div>
 		<fieldset class="form-group">
-          <label>Фамилия </label>
+          <label>Фамилия* </label>
           <input type="text" class="form-control" v-model="last_name" />
         </fieldset>
 		<fieldset class="form-group">
-          <label>Имя </label>
+          <label>Имя* </label>
           <input type="text" class="form-control" v-model="first_name" />
         </fieldset>
 		<fieldset class="form-group">
@@ -41,6 +32,15 @@
           <input type="text" class="form-control" v-model="enrolled" />
         </fieldset>
         <button class="btn" type="submit">Сохранить</button>
+		<div v-if="errors.length">
+          <div
+            class="alert alert-danger"
+            v-bind:key="index"
+            v-for="(error, index) in errors"
+          >
+            {{ error }}
+          </div>
+        </div>
       </form>
     </div>
   </div>
@@ -82,11 +82,8 @@ export default { // добавление не работает
     validateAndSubmit(e) {
       e.preventDefault();
       this.errors = [];
-/*      if (!this.last_name) {
-        this.errors.push("Введите фамилию");
-      }
-      if (!this.first_name) {
-        this.errors.push("Введите имя");
+/*     if ((!this.last_name)||(!this.first_name)) {
+         this.errors.push("Заполните обязательные поля (*)"); 
       }*/
       if (this.errors.length === 0) {
         if (this.id_learner == -1) {
