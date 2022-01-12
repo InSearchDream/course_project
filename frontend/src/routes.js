@@ -47,7 +47,7 @@ const router = new Router({
             component: () => import("./components/addTrainer"),
 		},
 		{
-			path: "/leaners/:id_learner",
+			path: "/learners/:id_learner",
             name: "Learner",
             component: () => import("./components/addLearner"),
 		},
