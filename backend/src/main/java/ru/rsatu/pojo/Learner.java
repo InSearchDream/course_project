@@ -39,3 +39,49 @@ public class Learner extends People {
     }
 
 }
+
+/*package ru.rsatu.pojo;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.sql.Date;
+
+@Entity
+@Table(name = "learner")
+public class Learner extends People {
+    @Id
+    @SequenceGenerator(name = "learnerSeq", sequenceName = "learner_id_seq", allocationSize = 1, initialValue = 1)
+    @GeneratedValue(generator = "learnerSeq")
+    private Long id_learner;
+
+    @ManyToOne
+    @JsonIgnore  // чтобы данное поле не конвертировалось в json
+    private Section id_section;
+    private Boolean enrolled;
+
+    public Long getId_learner() {
+        return id_learner;
+    }
+
+    public Section getId_section() {
+        return id_section;
+    }
+
+    public void setId_section(Section id_section) {
+        this.id_section = id_section;
+    }
+
+    public Boolean getEnrolled() {
+        return enrolled;
+    }
+
+    public void setEnrolled(Boolean enrolled) {
+        this.enrolled = enrolled;
+    }
+
+    public Learner() {
+    }
+
+}*/

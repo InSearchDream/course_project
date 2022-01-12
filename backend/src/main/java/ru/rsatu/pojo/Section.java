@@ -36,3 +36,56 @@ public class Section {
     }
 
 }
+
+
+/*package ru.rsatu.pojo;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "section")
+public class Section {
+    @Id
+    @SequenceGenerator(name = "sectionSeq", sequenceName = "section_id_seq", allocationSize = 1, initialValue = 1)
+    @GeneratedValue(generator = "sectionSeq")
+    private Long id_section;
+    private String section_name;
+    @ManyToOne
+    @JsonIgnore
+    private Trainer id_trainer;
+
+    public Long getId_section() {
+        return id_section;
+    }
+
+    public String getSection_name() {
+        return section_name;
+    }
+
+    public void setSection_name(String section_name) {
+        this.section_name = section_name;
+    }
+
+    public Trainer getId_trainer() {
+        return id_trainer;
+    }
+
+    public void setId_trainer(Trainer id_trainer) {
+        this.id_trainer = id_trainer;
+    }
+
+    public Section() {
+    }
+
+    public Section(Long id_section,
+                   String section_name, Trainer id_trainer)
+    {
+        super( );
+        this.id_section = id_section;
+        this.section_name = section_name;
+        this.id_trainer = id_trainer;
+    }
+
+}*/
