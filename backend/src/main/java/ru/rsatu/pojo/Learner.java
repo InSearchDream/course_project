@@ -2,15 +2,15 @@ package ru.rsatu.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
 @Table(name = "learner")
 public class Learner extends People {
     @Id
+    @SequenceGenerator(name = "learnerSeq", sequenceName = "learner_id_seq", allocationSize = 1, initialValue = 1)
+    @GeneratedValue(generator = "learnerSeq")
     private Long id_learner;
     private String id_section;
     private Boolean enrolled;
