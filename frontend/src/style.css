@@ -99,7 +99,7 @@ input[type=text]{
 
 #app{
   width: 400px;
-  height: 250px; 
+  height: 250px; /*отредактировать высоту рамки*/
   padding: 20px;
   border: 3px double #1e8cbe;
   border-radius: 12px;
