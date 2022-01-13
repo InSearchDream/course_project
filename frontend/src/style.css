@@ -98,7 +98,7 @@ input[type=text]{
 
 #app{
   width: 400px;
-  height: 400px; /*добавление ширины рамки*/
+  height: 250px; 
   padding: 20px;
   border: 3px double #1e8cbe;
   border-radius: 12px;
