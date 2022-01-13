@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+  <main-header/>
     <h3>Данные о секциях</h3>
     <div v-if="message" class="alert alert-success">{{ this.message }}</div>
     <div class="container">
@@ -37,9 +38,11 @@
 </template>
 <script>
 import SectionDataService from "../service/DataService";
+import MainHeader from "@/components/MainHeader";
 
 export default {
   name: "Sections",
+  components: {MainHeader},
   data() {
     return {
       sections: [],
