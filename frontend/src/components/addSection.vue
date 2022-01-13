@@ -19,7 +19,14 @@
 		<fieldset class="form-group">
           <label>Тренер </label>
 
-          <input type="text" class="form-control" v-model="id_trainer" />
+          <!--<input type="text" class="form-control" v-model="id_trainer" />-->
+	  
+	  <select v-model="id_trainer" class="combobox">
+            <option v-for="trainer in trainers" :key="trainer.first_name" :value="trainer.id_trainer" >
+              {{ trainer.first_name + " " +  trainer.middle_name}}
+            </option>
+          </select>
+	  
         </fieldset>
         <button class="btn" type="submit">Сохранить</button>
       </form>
@@ -31,6 +38,7 @@
 </template>
 <script>
 import SectionDataService from "../service/DataService";
+import TrainerDataService from "@/service/DataService";
 
 export default { 
   name: "Section",
@@ -38,6 +46,7 @@ export default {
     return {
       section_name: "",
       id_trainer: "",
+      trainers:[],
       errors: [],
     };
   },
@@ -51,9 +60,14 @@ export default {
 		this.$router.push("/sections");
 	},
     refreshSectionDetails() {
-      SectionDataService.retrieveSection(this.id_section).then((res) => {
+    
+      /*SectionDataService.retrieveSection(this.id_section).then((res) => {
         this.section_name = res.data.section_name;
 		this.id_trainer = res.data.id_trainer;
+      });*/
+      
+      TrainerDataService.retrieveAllTrainers().then((res) => {
+        this.trainers = res.data;
       });
     },
     validateAndSubmit(e) {
