@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+  <main-header/>
     <h3>Общее расписание</h3>
     <div v-if="message" class="alert alert-success">{{ this.message }}</div>
     <div class="container">
@@ -49,9 +50,11 @@
 </template>
 <script>
 import ScheduleDataService from "../service/DataService";
+import MainHeader from "@/components/MainHeader";
 
 export default {
   name: "Schedules",
+  components: {MainHeader},
   data() {
     return {
       schedules: [],
