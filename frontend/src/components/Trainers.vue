@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+  <main-header/>
     <h3>Данные о тренерах</h3>
     <div v-if="message" class="alert alert-success">{{ this.message }}</div>
     <div class="container">
@@ -43,9 +44,11 @@
 </template>
 <script>
 import TrainerDataService from "../service/DataService";
+import MainHeader from "@/components/MainHeader";
 
 export default {
   name: "Trainers",
+  components: {MainHeader},
   data() {
     return {
       trainers: [],
