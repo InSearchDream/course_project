@@ -6,8 +6,7 @@
 		<fieldset class="form-group">
           <label>Место проведения* </label>
           <input type="text" class="form-control" v-model="place_name" />
-        </fieldset>
-        <button class="btn" type="submit">Сохранить</button>
+        </fieldset>        
 		<div v-if="errors.length">
           <div
             class="alert alert-danger"
@@ -17,7 +16,11 @@
             {{ error }}
           </div>
         </div>
+		<button class="btn" type="submit">Сохранить</button>
       </form>
+      <div class="row">
+        <button class="btn" v-on:click="cansell()">Отмена</button>
+      </div>
     </div>
   </div>
 </template>
@@ -38,6 +41,9 @@ export default {
     },
   },
   methods: {
+	cansell(){
+		this.$router.push("/places");
+	},
     refreshPlaceDetails() {
       PlaceDataService.retrievePlace(this.id_place).then((res) => {
         this.place_name = res.data.place_name;

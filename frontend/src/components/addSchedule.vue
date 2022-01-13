@@ -35,7 +35,6 @@
           <label>Премичание </label>
           <input type="text" class="form-control" v-model="note" />
         </fieldset>
-        <button class="btn" type="submit">Сохранить</button>
 		<div v-if="errors.length">
           <div
             class="alert alert-danger"
@@ -45,7 +44,11 @@
             {{ error }}
           </div>
         </div>
+		<button class="btn" type="submit">Сохранить</button>
       </form>
+      <div class="row">
+        <button class="btn" v-on:click="cansell()">Отмена</button>
+      </div>
     </div>
   </div>
 </template>
@@ -73,6 +76,9 @@ export default {
     },
   },
   methods: {
+	cansell(){
+		this.$router.push("/schedules");
+	},
     refreshScheduleDetails() {
       ScheduleDataService.retrieveSchedule(this.id_schedule).then((res) => {
         this.id_place = res.data.id_place;

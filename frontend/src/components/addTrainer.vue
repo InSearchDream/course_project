@@ -22,8 +22,7 @@
         <fieldset class="form-group">
           <label>Дата рождения </label>
           <input type="text" class="form-control" v-model="birthday" />
-        </fieldset>
-        <button class="btn" type="submit">Сохранить</button>
+        </fieldset>        
 		<div v-if="errors.length">
           <div
             class="alert alert-danger"
@@ -33,7 +32,11 @@
             {{ error }}
           </div>
         </div>
+		<button class="btn" type="submit">Сохранить</button>
       </form>
+      <div class="row">
+        <button class="btn" v-on:click="cansell()">Отмена</button>
+      </div>
     </div>
   </div>
 </template>
@@ -58,6 +61,9 @@ export default {
     },
   },
   methods: {
+	cansell(){
+		this.$router.push("/trainers");
+	},
     refreshTrainerDetails() {
       TrainerDataService.retrieveTrainer(this.id_trainer).then((res) => {
         this.last_name = res.data.last_name;

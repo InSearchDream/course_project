@@ -31,7 +31,6 @@
           <label>Зачисление </label>
           <input type="text" class="form-control" v-model="enrolled" />
         </fieldset>
-        <button class="btn" type="submit">Сохранить</button>
 		<div v-if="errors.length">
           <div
             class="alert alert-danger"
@@ -41,7 +40,11 @@
             {{ error }}
           </div>
         </div>
+		<button class="btn" type="submit">Сохранить</button>
       </form>
+      <div class="row">
+        <button class="btn" v-on:click="cansell()">Отмена</button>
+      </div>
     </div>
   </div>
 </template>
@@ -68,6 +71,9 @@ export default { // добавление не работает
     },
   },
   methods: {
+	cansell(){
+		this.$router.push("/learners");
+	},
     refreshLearnerDetails() {
       LearnerDataService.retrieveLearner(this.id_learner).then((res) => {
         this.last_name = res.data.last_name;

@@ -10,8 +10,7 @@
 		<fieldset class="form-group">
           <label>Утверждено </label>
           <input type="text" class="form-control" v-model="approved" />
-        </fieldset>
-        <button class="btn" type="submit">Сохранить</button>
+        </fieldset>        
 		<div v-if="errors.length">
           <div
             class="alert alert-danger"
@@ -21,7 +20,11 @@
             {{ error }}
           </div>
         </div>
+		<button class="btn" type="submit">Сохранить</button>
       </form>
+      <div class="row">
+        <button class="btn" v-on:click="cansell()">Отмена</button>
+      </div>
     </div>
   </div>
 </template>
@@ -43,6 +46,9 @@ export default {
     },
   },
   methods: {
+	cansell(){
+		this.$router.push("/headerschedules");
+	},
     refreshHeaderScheduleDetails() {
       HeaderScheduleDataService.retrieveHeaderSchedule(this.id_header_schedule).then((res) => {
         this.header_name = res.data.header_name;

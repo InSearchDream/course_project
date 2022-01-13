@@ -18,10 +18,14 @@
         </fieldset>
 		<fieldset class="form-group">
           <label>Тренер </label>
+
           <input type="text" class="form-control" v-model="id_trainer" />
         </fieldset>
         <button class="btn" type="submit">Сохранить</button>
       </form>
+      <div class="row">
+        <button class="btn" v-on:click="cansell()">Отмена</button>
+      </div>
     </div>
   </div>
 </template>
@@ -43,6 +47,9 @@ export default {
     },
   },
   methods: {
+	cansell(){
+		this.$router.push("/sections");
+	},
     refreshSectionDetails() {
       SectionDataService.retrieveSection(this.id_section).then((res) => {
         this.section_name = res.data.section_name;
