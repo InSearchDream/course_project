@@ -5,31 +5,58 @@
       <form @submit="validateAndSubmit">
         <fieldset class="form-group">
           <label>Место проведения* </label>
-          <input type="text" class="form-control" v-model="id_place" />
+<!--          <input type="text" class="form-control" v-model="id_place"/>-->
+          <v-select
+              class="v-select"
+              placeholder="Выберите название из списка"
+              v-model="id_place"
+              :options="places"
+              :reduce="(place) => place.id_place"
+              :get-option-label="(place) =>  place.place_name">
+            <div slot="no-options">Никого не нашлось</div>
+          </v-select>
         </fieldset>
 		<fieldset class="form-group">
           <label>Секция* </label>
-          <input type="text" class="form-control" v-model="id_section" />
+<!--           <input type="text" class="form-control" v-model="id_section"/>-->
+          <v-select
+              class="v-select"
+              placeholder="Выберите название из списка"
+              v-model="id_section"
+              :options="sections"
+              :reduce="(section) => section.id_section"
+              :get-option-label="(section) =>  section.section_name">
+            <div slot="no-options">Никого не нашлось</div>
+          </v-select>
         </fieldset>
 		<fieldset class="form-group">
           <label>Заголовок* </label>
-          <input type="text" class="form-control" v-model="id_header_schedule" />
+<!--          <input type="text" class="form-control" v-model="id_header_schedule"/>-->
+          <v-select
+              class="v-select"
+              placeholder="Выберите название из списка"
+              v-model="id_header_schedule"
+              :options="headerSchedules"
+              :reduce="(headerSchedule) => headerSchedule.id_header_schedule"
+              :get-option-label="(headerSchedule) =>  headerSchedule.header_name">
+            <div slot="no-options">Никого не нашлось</div>
+          </v-select>
         </fieldset>
         <fieldset class="form-group">
           <label>Дата* </label>
-          <input type="text" class="form-control" v-model="date" />
+          <input type="date" class="form-control" v-model="date" />
         </fieldset>
         <fieldset class="form-group">
           <label>Время начала* </label>
-          <input type="text" class="form-control" v-model="time_start" />
+          <input type="time" class="form-control" v-model="time_start" />
         </fieldset>
 		<fieldset class="form-group">
           <label>Время окончания* </label>
-          <input type="text" class="form-control" v-model="time_end" />
+          <input type="time" class="form-control" v-model="time_end" />
         </fieldset>
         <fieldset class="form-group">
           <label>Отмена занятия </label>
-          <input type="text" class="form-control" v-model="cancell" />
+          <input type="checkbox" class="form-control" v-bind="[true, false]" v-model="cancell"/>
         </fieldset>
         <fieldset class="form-group">
           <label>Премичание </label>
@@ -65,8 +92,11 @@ export default {
       date: "",
       time_start: "",
       time_end: "",
-      cancell: "",
+      cancell: false,
       note: "",
+      sections: [],
+      places: [],
+      headerSchedules: [],
       errors: [],
     };
   },
@@ -80,15 +110,27 @@ export default {
 		this.$router.push("/schedules");
 	},
     refreshScheduleDetails() {
-      ScheduleDataService.retrieveSchedule(this.id_schedule).then((res) => {
+      /*ScheduleDataService.retrieveSchedule(this.id_schedule).then((res) => {
         this.id_place = res.data.id_place;
-		this.id_section = res.data.id_section;
-		this.id_header_schedule = res.data.id_header_schedule;
+        this.id_section = res.data.id_section;
+        this.id_header_schedule = res.data.id_header_schedule;
         this.date = res.data.date;
         this.time_start = res.data.time_start;
-		this.time_end = res.data.time_end;
+        this.time_end = res.data.time_end;
         this.cancell = res.data.cancell;
         this.note = res.data.note;
+      });*/
+      ScheduleDataService.retrieveAllSections().then((res) => {
+        this.sections = res.data;
+        console.log(res.data)
+      });
+      ScheduleDataService.retrieveAllPlaces().then((res) => {
+        this.places = res.data;
+        console.log(res.data)
+      });
+      ScheduleDataService.retrieveAllHeaderSchedules().then((res) => {
+        this.headerSchedules = res.data;
+        console.log(res.data)
       });
     },
     validateAndSubmit(e) {
@@ -104,8 +146,8 @@ export default {
 			id_section: this.id_section,
 			id_header_schedule: this.id_header_schedule,
             date: this.date,
-            time_start: this.time_start,
-			time_end: this.time_end,
+            time_start: this.time_start+':00',
+            time_end: this.time_end+':00',
             cancell: this.cancell,
             note: this.note,
           }).then(() => {
