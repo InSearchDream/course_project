@@ -16,17 +16,23 @@
           <label>Наименование секции </label>
           <input type="text" class="form-control" v-model="section_name" />
         </fieldset>
-		<fieldset class="form-group">
+	<fieldset class="form-group">
           <label>Тренер </label>
-
-          <!--<input type="text" class="form-control" v-model="id_trainer" />-->
-	  
+            <v-select
+                class="v-select"
+                placeholder="Выберите тренера из списка"
+                v-model="id_trainer"
+                :options="trainers"
+                :reduce="(trainer) => trainer.id_trainer"
+                :get-option-label="(trainer) =>  trainer.last_name +' '+ trainer.first_name+ ' ' + trainer.middle_name" >
+              <div slot="no-options">Никого не нашлось</div>
+            </v-select>
+          <!--<input type="text" class="form-control" v-model="id_trainer" />
 	  <select v-model="id_trainer" class="combobox">
             <option v-for="trainer in trainers" :key="trainer.first_name" :value="trainer.id_trainer" >
               {{ trainer.first_name + " " +  trainer.middle_name}}
             </option>
-          </select>
-	  
+          </select>-->
         </fieldset>
         <button class="btn" type="submit">Сохранить</button>
       </form>
