@@ -84,6 +84,7 @@ h3 {
 }
 .v-select{
     width: 35%;
+	display: inline-block;
 }
 fieldset input {
   text-align: center;
