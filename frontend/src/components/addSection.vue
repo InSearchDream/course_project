@@ -28,7 +28,7 @@
               <div slot="no-options">Никого не нашлось</div>
             </v-select>
           <!--<input type="text" class="form-control" v-model="id_trainer" />
-	  <select v-model="id_trainer" class="combobox">
+		<select v-model="id_trainer" class="combobox">
             <option v-for="trainer in trainers" :key="trainer.first_name" :value="trainer.id_trainer" >
               {{ trainer.first_name + " " +  trainer.middle_name}}
             </option>

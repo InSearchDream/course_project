@@ -26,7 +26,7 @@
 		<fieldset class="form-group">
           <label>Секция </label>
           <!--<input type="text" class="form-control" v-model="id_section" />-->
-	  <v-select
+		<v-select
               class="v-select"
               placeholder="Выберите тренера из списка"
               v-model="id_section"
@@ -59,6 +59,7 @@
 </template>
 <script>
 import LearnerDataService from "../service/DataService";
+import SectionDataService from "@/service/DataService";
 
 export default { // добавление не работает
   name: "Learner",
