@@ -59,7 +59,6 @@
 </template>
 <script>
 import LearnerDataService from "../service/DataService";
-import SectionDataService from "@/service/DataService";
 
 export default { // добавление не работает
   name: "Learner",
@@ -95,7 +94,7 @@ export default { // добавление не работает
 		this.id_section = res.data.id_section;
         this.enrolled = res.data.enrolled;
       });*/
-      SectionDataService.retrieveAllSections().then((res) => {
+      LearnerDataService.retrieveAllSections().then((res) => {
         this.sections = res.data;
       });
     },
