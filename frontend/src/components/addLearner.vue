@@ -28,12 +28,12 @@
           <!--<input type="text" class="form-control" v-model="id_section" />-->
 		<v-select
               class="v-select"
-              placeholder="Выберите тренера из списка"
+              placeholder="Выберите секцию из списка"
               v-model="id_section"
               :options="sections"
               :reduce="(section) => section.id_section"
               :get-option-label="(section) =>  section.section_name">
-            <div slot="no-options">Никого не нашлось</div>
+            <div slot="no-options">Никаких не нашлось</div>
           </v-select>
         </fieldset>
 		<fieldset class="form-group">

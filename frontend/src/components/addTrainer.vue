@@ -21,7 +21,7 @@
         </fieldset>
         <fieldset class="form-group">
           <label>Дата рождения </label>
-          <input type="text" class="form-control" v-model="birthday" />
+          <input type="date" class="form-control" v-model="birthday" />
         </fieldset>        
 		<div v-if="errors.length">
           <div
