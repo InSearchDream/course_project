@@ -21,15 +21,24 @@
         </fieldset>
         <fieldset class="form-group">
           <label>Дата рождения </label>
-          <input type="text" class="form-control" v-model="birthday" />
+          <input type="date" class="form-control" v-model="birthday" />
         </fieldset>
 		<fieldset class="form-group">
           <label>Секция </label>
-          <input type="text" class="form-control" v-model="id_section" />
+          <!--<input type="text" class="form-control" v-model="id_section" />-->
+	  <v-select
+              class="v-select"
+              placeholder="Выберите тренера из списка"
+              v-model="id_section"
+              :options="sections"
+              :reduce="(section) => section.id_section"
+              :get-option-label="(section) =>  section.section_name">
+            <div slot="no-options">Никого не нашлось</div>
+          </v-select>
         </fieldset>
 		<fieldset class="form-group">
           <label>Зачисление </label>
-          <input type="text" class="form-control" v-model="enrolled" />
+          <input type="checkbox" class="form-control" v-bind="[true, false]" v-model="enrolled"/> 
         </fieldset>
 		<div v-if="errors.length">
           <div
@@ -61,7 +70,8 @@ export default { // добавление не работает
       phone: "",
       birthday: "",
       id_section: "",
-      enrolled: "",
+      enrolled: false, 
+      sections: [],
       errors: [],
     };
   },
@@ -75,7 +85,7 @@ export default { // добавление не работает
 		this.$router.push("/learners");
 	},
     refreshLearnerDetails() {
-      LearnerDataService.retrieveLearner(this.id_learner).then((res) => {
+      /*LearnerDataService.retrieveLearner(this.id_learner).then((res) => {
         this.last_name = res.data.last_name;
 		this.first_name = res.data.first_name;
 		this.middle_name = res.data.middle_name;
@@ -83,6 +93,9 @@ export default { // добавление не работает
         this.birthday = res.data.birthday;
 		this.id_section = res.data.id_section;
         this.enrolled = res.data.enrolled;
+      });*/
+      SectionDataService.retrieveAllSections().then((res) => {
+        this.sections = res.data;
       });
     },
     validateAndSubmit(e) {
