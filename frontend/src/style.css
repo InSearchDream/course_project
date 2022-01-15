@@ -109,9 +109,23 @@ input[type=text]{
   border-radius: 12px;
   margin: 20px auto;
 }
+.pagination {
+    display: inline-block;
+    margin: 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 
+.pagination li {display: inline;}
 
-
-
+.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
 
 
