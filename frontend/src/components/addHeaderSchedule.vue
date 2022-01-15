@@ -58,10 +58,10 @@ export default {
     validateAndSubmit(e) {
       e.preventDefault();
       this.errors = [];
-/*      if (!this.header_name) {
+      if (!this.header_name) {
         this.errors.push("Заполните обязательные поля (*)"); 
       }
-*/
+
       if (this.errors.length === 0) {
         if (this.id_header_schedule == -1) {
           HeaderScheduleDataService.createHeaderSchedule({
