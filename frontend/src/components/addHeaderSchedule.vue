@@ -9,7 +9,7 @@
         </fieldset>
 		<fieldset class="form-group">
           <label>Утверждено </label>
-          <input type="text" class="form-control" v-model="approved" />
+          <input type="checkbox" class="form-control" v-bind="[true, false]" v-model="approved" />
         </fieldset>        
 		<div v-if="errors.length">
           <div
@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       header_name: "",
-      approved: "",
+      approved: false,
       errors: [],
     };
   },
