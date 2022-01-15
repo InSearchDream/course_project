@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const API_URL = 'http://localhost:8080/'
+const API_URL = 'http://localhost:8080'
 
 
 class DataService { 
@@ -102,7 +102,7 @@ class DataService {
         return axios.post(`${API_URL}/sections/insertSection`, section);
     }
 	
-//Schedule----------------- // не работают операции
+//Schedule----------------- 
     retrieveAllSchedules() {
         return axios.get(`${API_URL}/schedules/getSchedules`);
     }
