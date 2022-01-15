@@ -85,7 +85,7 @@ export default { // добавление не работает
 		this.$router.push("/learners");
 	},
     refreshLearnerDetails() {
-      /*LearnerDataService.retrieveLearner(this.id_learner).then((res) => {
+      LearnerDataService.retrieveLearner(this.id_learner).then((res) => {
         this.last_name = res.data.last_name;
 		this.first_name = res.data.first_name;
 		this.middle_name = res.data.middle_name;
@@ -93,7 +93,7 @@ export default { // добавление не работает
         this.birthday = res.data.birthday;
 		this.id_section = res.data.id_section;
         this.enrolled = res.data.enrolled;
-      });*/
+      });
       LearnerDataService.retrieveAllSections().then((res) => {
         this.sections = res.data;
       });

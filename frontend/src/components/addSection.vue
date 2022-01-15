@@ -68,10 +68,10 @@ export default {
 	},
     refreshSectionDetails() {
     
-      /*SectionDataService.retrieveSection(this.id_section).then((res) => {
+      SectionDataService.retrieveSection(this.id_section).then((res) => {
         this.section_name = res.data.section_name;
 		this.id_trainer = res.data.id_trainer;
-      });*/
+      });
       
       TrainerDataService.retrieveAllTrainers().then((res) => {
         this.trainers = res.data;

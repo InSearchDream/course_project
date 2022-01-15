@@ -11,7 +11,7 @@ class DataService {
     }
 
     retrieveTrainer(id_trainer) {
-        return axios.get(`${API_URL}/trainers/getTrainerById`, id_trainer);
+        return axios.get(`${API_URL}/trainers/${id_trainer}`);
     }
 
     deleteTrainer(id_trainer) {
@@ -36,7 +36,7 @@ class DataService {
     }
 	
     retrieveLearner(id_learner) {
-        return axios.get(`${API_URL}/learners/getLearnerById`, id_learner);
+        return axios.get(`${API_URL}/learners/${id_learner}`);
     }
 
     deleteLearner(id_learner) {
@@ -60,7 +60,7 @@ class DataService {
     }
 
     retrievePlace(id_place) {
-        return axios.get(`${API_URL}/places/getPlaceById`, id_place);
+        return axios.get(`${API_URL}/places/${id_place}`);
     }
 
     deletePlace(id_place) {
@@ -84,7 +84,7 @@ class DataService {
     }
 
     retrieveSection(id_section) {
-        return axios.get(`${API_URL}/sections/getSectionById`, id_section);
+        return axios.get(`${API_URL}/sections/${id_section}`);
     }
 
     deleteSection(id_section) {
@@ -108,7 +108,7 @@ class DataService {
     }
 
     retrieveSchedule(id_schedule) {
-        return axios.get(`${API_URL}/schedules/getScheduleById`, id_schedule);
+        return axios.get(`${API_URL}/schedules/${id_schedule}`);
     }
 
     deleteSchedule(id_schedule) {
@@ -132,7 +132,7 @@ class DataService {
     }
 
     retrieveHeaderSchedule(id_header_schedule) {
-        return axios.get(`${API_URL}/headerschedules/getHeaderScheduleById`, id_header_schedule);
+        return axios.get(`${API_URL}/headerschedules/${id_header_schedule}`);
     }
 
     deleteHeaderSchedule(id_header_schedule) {

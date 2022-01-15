@@ -111,7 +111,7 @@ export default {
 		this.$router.push("/schedules");
 	},
     refreshScheduleDetails() {
-      /*ScheduleDataService.retrieveSchedule(this.id_schedule).then((res) => {
+      ScheduleDataService.retrieveSchedule(this.id_schedule).then((res) => {
         this.id_place = res.data.id_place;
         this.id_section = res.data.id_section;
         this.id_header_schedule = res.data.id_header_schedule;
@@ -120,7 +120,7 @@ export default {
         this.time_end = res.data.time_end;
         this.cancell = res.data.cancell;
         this.note = res.data.note;
-      });*/
+      });
       ScheduleDataService.retrieveAllSections().then((res) => {
         this.sections = res.data;
         console.log(res.data)
