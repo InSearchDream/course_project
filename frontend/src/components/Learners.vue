@@ -71,7 +71,7 @@ export default {
     updateLearner(id_learner) {
       this.$router.push(`/learners/${id_learner}`);
     },
-    deleteTrainer(id_learner) {
+    deleteLearner(id_learner) {
       LearnerDataService.deleteLearner(id_learner).then(() => {
         this.refreshLearners();
       });

@@ -4,7 +4,7 @@ import axios from 'axios'
 const API_URL = 'http://localhost:8080/'
 
 
-class DataService { // не работает add
+class DataService { 
 //Trainer
     retrieveAllTrainers() {
         return axios.get(`${API_URL}/trainers/getTrainers`);
@@ -46,7 +46,7 @@ class DataService { // не работает add
 
     updateLearner(id_learner, learner) {
 
-        return axios.put(`${API_URL}/learners/updateLearner`, learner);
+        return axios.post(`${API_URL}/learners/updateLearner`, learner);
     }
 
     createLearner(learner) {
@@ -102,7 +102,7 @@ class DataService { // не работает add
         return axios.post(`${API_URL}/sections/insertSection`, section);
     }
 	
-//Schedule-----------------
+//Schedule----------------- // не работают операции
     retrieveAllSchedules() {
         return axios.get(`${API_URL}/schedules/getSchedules`);
     }

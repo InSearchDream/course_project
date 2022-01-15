@@ -122,7 +122,7 @@ export default { // добавление не работает
             id_learner: this.id_learner,
             last_name: this.last_name,
 			first_name: this.first_name,
-			middle_name: this.middle_name,			
+			middle_name: this.middle_name,
             phone: this.phone,
             birthday: this.birthday,
 			id_section: this.id_section,
