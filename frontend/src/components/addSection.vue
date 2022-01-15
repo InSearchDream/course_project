@@ -3,21 +3,13 @@
     <h3>Заполнение информации о секции</h3>
     <div class="container">
       <form @submit="validateAndSubmit">
-        <div v-if="errors.length">
-          <div
-            class="alert alert-danger"
-            v-bind:key="index"
-            v-for="(error, index) in errors"
-          >
-            {{ error }}
-          </div>
-        </div>
+        
 		<fieldset class="form-group">
-          <label>Наименование секции </label>
+          <label>Наименование секции* </label>
           <input type="text" class="form-control" v-model="section_name" />
         </fieldset>
 	<fieldset class="form-group">
-          <label>Тренер </label>
+          <label>Тренер* </label>
             <v-select
                 class="v-select"
                 placeholder="Выберите тренера из списка"
@@ -34,6 +26,15 @@
             </option>
           </select>-->
         </fieldset>
+		<div v-if="errors.length">
+          <div
+            class="alert alert-danger"
+            v-bind:key="index"
+            v-for="(error, index) in errors"
+          >
+            {{ error }}
+          </div>
+        </div>
         <button class="btn" type="submit">Сохранить</button>
       </form>
       <div class="row">
@@ -79,12 +80,10 @@ export default {
     validateAndSubmit(e) {
       e.preventDefault();
       this.errors = [];
-/*      if (!this.section_name) {
-        this.errors.push("Введите секцию");
+      if ((!this.section_name)||(!this.id_trainer)) {
+        this.errors.push("Заполните обязательные поля (*)");
       }
-      if (!this.id_trainer) {
-        this.errors.push("Выберите тренера");
-      }*/
+
       if (this.errors.length === 0) {
         if (this.id_section == -1) {
           SectionDataService.createSection({

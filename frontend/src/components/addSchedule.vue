@@ -36,9 +36,9 @@
               class="v-select"
               placeholder="Выберите название из списка"
               v-model="id_header_schedule"
-              :options="headerSchedules"
-              :reduce="(headerSchedule) => headerSchedule.id_header_schedule"
-              :get-option-label="(headerSchedule) =>  headerSchedule.header_name">
+              :options="headerschedules"
+              :reduce="(headerschedule) => headerschedule.id_header_schedule"
+              :get-option-label="(headerschedule) =>  headerschedule.header_name">
             <div slot="no-options">Никого не нашлось</div>
           </v-select>
         </fieldset>
@@ -96,7 +96,7 @@ export default {
       note: "",
       sections: [],
       places: [],
-      headerSchedules: [],
+      headerschedules: [],
       errors: [],
     };
   },
@@ -129,7 +129,7 @@ export default {
         console.log(res.data)
       });
       ScheduleDataService.retrieveAllHeaderSchedules().then((res) => {
-        this.headerSchedules = res.data;
+        this.headerschedules = res.data;
         console.log(res.data)
       });
     },

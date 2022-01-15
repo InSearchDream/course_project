@@ -52,9 +52,9 @@ export default {
     validateAndSubmit(e) {
       e.preventDefault();
       this.errors = [];
-/*      if (!this.place_name) {
+      if (!this.place_name) {
         this.errors.push("Заполните обязательные поля (*)");
-      }*/
+      }
       if (this.errors.length === 0) {
         if (this.id_place == -1) {
           PlaceDataService.createPlace({

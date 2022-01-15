@@ -101,9 +101,9 @@ export default { // добавление не работает
     validateAndSubmit(e) {
       e.preventDefault();
       this.errors = [];
-/*     if ((!this.last_name)||(!this.first_name)) {
+     if ((!this.last_name)||(!this.first_name)) {
          this.errors.push("Заполните обязательные поля (*)"); 
-      }*/
+      }
       if (this.errors.length === 0) {
         if (this.id_learner == -1) {
           LearnerDataService.createLearner({
