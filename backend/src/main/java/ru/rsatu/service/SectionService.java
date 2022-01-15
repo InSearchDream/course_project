@@ -42,6 +42,7 @@ public class SectionService {
     // Получение списка
     public List<Section> getSections(){
         return em.createQuery("select s from Section s", Section.class).getResultList();
+        // return em.createQuery("select s, t from Section s left join Trainer t on s.id_trainer = t.id_trainer").getResultList();
     }
 
     // Поиск по ID
