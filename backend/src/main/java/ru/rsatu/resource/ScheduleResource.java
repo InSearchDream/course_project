@@ -23,8 +23,8 @@ public class ScheduleResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/getScheduleById")
-    public Response getScheduleById(@QueryParam("id_schedule") Long id_schedule){
+    @Path("/{id_schedule}")
+    public Response getScheduleById(@PathParam("id_schedule") Long id_schedule){
         return Response.ok(ssch.getScheduleById(id_schedule)).build();
     }
 

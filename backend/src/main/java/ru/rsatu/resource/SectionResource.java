@@ -23,8 +23,8 @@ public class SectionResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/getSectionById")
-    public Response getSectionById(@QueryParam("id_section") Long id_section){
+    @Path("/{id_section}")
+    public Response getSectionById(@PathParam("id_section") Long id_section){
         return Response.ok(ss.getSectionById(id_section)).build();
     }
 

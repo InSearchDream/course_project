@@ -23,8 +23,8 @@ public class HeaderScheduleResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/getHeaderScheduleById")
-    public Response getHeaderScheduleById(@QueryParam("id_header_schedule") Long id_header_schedule){
+    @Path("/{id_header_schedule}")
+    public Response getHeaderScheduleById(@PathParam("id_header_schedule") Long id_header_schedule){
         return Response.ok(shs.getHeaderScheduleById(id_header_schedule)).build();
     }
 

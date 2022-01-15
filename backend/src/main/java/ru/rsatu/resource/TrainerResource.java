@@ -23,8 +23,8 @@ public class TrainerResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/getTrainerById")
-    public Response getTrainerById(@QueryParam("id_trainer") Long id_trainer){
+    @Path("/{id_trainer}")
+    public Response getTrainerById(@PathParam("id_trainer") Long id_trainer){
         return Response.ok(ts.getTrainerById(id_trainer)).build();
     }
 

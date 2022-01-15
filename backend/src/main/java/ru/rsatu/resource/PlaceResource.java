@@ -23,8 +23,8 @@ public class PlaceResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/getPlaceById")
-    public Response getPlaceById(@QueryParam("id_place") Long id_place){
+    @Path("/{id_place}")
+    public Response getPlaceById(@PathParam("id_place") Long id_place){
         return Response.ok(ps.getPlaceById(id_place)).build();
     }
 
