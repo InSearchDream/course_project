@@ -2,6 +2,101 @@
   <div class="container">
   <main-header/>
     <h3>Данные обо всех учениках</h3>
+	<b-row>
+		<b-col md="3">
+			<b-form-input v-model="filter" type="search" placeholder="Найти"> </b-form-input>
+		</b-col>
+	</b-row>
+	<b-row>
+		<b-col>
+			<b-table		
+			striped
+			hover
+			:items="learners"
+			:per-page="perPage"
+			:current-page="currentPage"
+			:filter="filter"
+			:fields="fields">
+			<template v-slot:cell(Update)="data">
+				<b-button variant="btn" @click="updateLearner(data.item.id_learner)">Δ</b-button>
+			</template>
+			<template v-slot:cell(Delete)="data">
+				<b-button variant="btn" @click="deleteLearner(data.item.id_learner)">-</b-button>
+			</template>
+			</b-table>
+			<b-pagination
+			class="pagination"
+			v-model="currentPage"
+			:total-rows="rows"
+			:per-page="perPage"
+			></b-pagination>
+		</b-col>
+	</b-row>
+	<div class="row">
+        <button class="btn" v-on:click="addLearner()">Добавить</button>
+    </div>
+  </div>
+</template>
+
+<script>
+import LearnerDataService from "../service/DataService";
+import MainHeader from "@/components/MainHeader";
+
+export default {
+  name: "Trainers",
+  components: {MainHeader},
+  data() {
+    return {
+      fields: [
+		//{key: 'id_trainer', label: "ИД"}, 
+		{key: 'last_name', label: "Фамилия"/*, sortable: true, sortDirection: 'desc'*/ },
+		{key: 'first_name', label: "Имя"}, 
+		{key:"middle_name", label: "Отчество"},
+		{key:"phone", label: "Телефон"},
+		{key:"birthday", label: "Дата рождения"},
+		{key:"id_section", label: "Секция"},
+		{key:"enrolled", label: "Зачислен"},
+		{key:"Update",label: "Update"},
+		{key:"Delete", label: "Delete"}],           	  
+      learners: [],
+      filter: "",
+      message: "",
+      perPage: 5,
+      currentPage: 1,	
+    };
+  },
+  methods: {
+    refreshLearners() {
+      LearnerDataService.retrieveAllLearners().then((res) => {
+        this.learners = res.data;
+      });
+    },
+    addLearner() {
+      this.$router.push(`/learners/-1`);
+    },
+    updateLearner(id_learner) {
+      this.$router.push(`/learners/${id_learner}`);
+    },
+    deleteLearner(id_learner) {
+      LearnerDataService.deleteLearner(id_learner).then(() => {
+        this.refreshLearners();
+      });
+    },
+  },
+  computed: {
+      rows() {
+        return this.learners.length
+      }
+  },
+  created() {
+    this.refreshLearners();
+  },
+};
+</script>
+<!--<template>
+  <div class="container">
+  <main-header/>
+    <h3>Данные обо всех учениках</h3>
     <div v-if="message" class="alert alert-success">{{ this.message }}</div>
     <div class="container">
       <table class="table">
@@ -81,4 +176,4 @@ export default {
     this.refreshLearners();
   },
 };
-</script>
+</script>-->

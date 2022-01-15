@@ -2,6 +2,103 @@
   <div class="container">
   <main-header/>
     <h3>Общее расписание</h3>
+	<b-row>
+		<b-col md="3">
+			<b-form-input v-model="filter" type="search" placeholder="Найти"> </b-form-input>
+		</b-col>
+	</b-row>
+	<b-row>
+		<b-col>
+			<b-table		
+			striped
+			hover
+			:items="schedules"
+			:per-page="perPage"
+			:current-page="currentPage"
+			:filter="filter"
+			:fields="fields">
+			<template v-slot:cell(Update)="data">
+				<b-button variant="btn" @click="updateSchedule(data.item.id_schedule)">Δ</b-button>
+			</template>
+			<template v-slot:cell(Delete)="data">
+				<b-button variant="btn" @click="deleteSchedule(data.item.id_schedule)">-</b-button>
+			</template>
+			</b-table>
+			<b-pagination
+			class="pagination"
+			v-model="currentPage"
+			:total-rows="rows"
+			:per-page="perPage"
+			></b-pagination>
+		</b-col>
+	</b-row>
+	<div class="row">
+        <button class="btn" v-on:click="addSchedule()">Добавить</button>
+    </div>
+  </div>
+</template>
+
+<script>
+import ScheduleDataService from "../service/DataService";
+import MainHeader from "@/components/MainHeader";
+
+export default {
+  name: "Schedules",
+  components: {MainHeader},
+  data() {
+    return {
+      fields: [
+		//{key: 'id_schedule', label: "ИД"}, 
+		{key: 'id_place', label: "Место проведения"/*, sortable: true, sortDirection: 'desc'*/ },
+		{key: 'id_section', label: "Секция"}, 
+		{key:"id_header_schedule", label: "Заголовок"},
+		{key:"date", label: "Дата"},
+		{key:"time_start", label: "Время начала"},
+		{key:"time_end", label: "Время окончания"},
+		{key:"cancell", label: "Отмена занятия"},
+		{key:"note", label: "Примечание"},
+		{key:"Update",label: "Update"},
+		{key:"Delete", label: "Delete"}],           	  
+      schedules: [],
+      filter: "",
+      message: "",
+      perPage: 5,
+      currentPage: 1,	
+    };
+  },
+  methods: {
+    refreshSchedules() {
+      ScheduleDataService.retrieveAllSchedules().then((res) => {
+        this.schedules = res.data;
+      });
+    },
+    addSchedule() {
+      this.$router.push(`/schedules/-1`);
+    },
+    updateSchedule(id_schedule) {
+      this.$router.push(`/schedules/${id_schedule}`);
+    },
+    deleteSchedule(id_schedule) {
+      ScheduleDataService.deleteSchedule(id_schedule).then(() => {
+        this.refreshSchedules();
+      });
+    },
+  },
+  computed: {
+      rows() {
+        return this.schedules.length
+      }
+  },
+  created() {
+    this.refreshSchedules();
+  },
+};
+</script>
+
+<!--<template>
+  <div class="container">
+  <main-header/>
+    <h3>Общее расписание</h3>
     <div v-if="message" class="alert alert-success">{{ this.message }}</div>
     <div class="container">
       <table class="table">
@@ -83,4 +180,4 @@ export default {
     this.refreshSchedules();
   },
 };
-</script>
+</script>-->
