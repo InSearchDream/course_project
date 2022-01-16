@@ -60,7 +60,9 @@
         </fieldset>
         <fieldset class="form-group">
           <label>Премичание </label>
-          <input type="text" class="form-control" v-model="note"/>
+<!--          <input type="text" class="form-control" v-model="note"/>-->
+
+          <textarea rows="4" cols="70" v-model="note"></textarea>
         </fieldset>
 		<div v-if="errors.length">
           <div
