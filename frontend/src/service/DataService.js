@@ -82,6 +82,9 @@ class DataService {
     retrieveAllSections() {
         return axios.get(`${API_URL}/sections/getSections`);
     }
+	retrieveAllSections1() {
+        return axios.get(`${API_URL}/sections/getSections1`);
+    }
 
     retrieveSection(id_section) {
         return axios.get(`${API_URL}/sections/${id_section}`);

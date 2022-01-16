@@ -18,10 +18,10 @@
 			:filter="filter"
 			:fields="fields">
 			<template v-slot:cell(Update)="data">
-				<b-button variant="btn" @click="updateSection(data.item.id_section)">Δ</b-button>
+				<b-button variant="btn" @click="updateSection(data.item[0].id_section)">Δ</b-button>
 			</template>
 			<template v-slot:cell(Delete)="data">
-				<b-button variant="btn" @click="deleteSection(data.item.id_section)">-</b-button>
+				<b-button variant="btn" @click="deleteSection(data.item[0].id_section)">-</b-button>
 			</template>
 			</b-table>
 			<b-pagination
@@ -48,9 +48,12 @@ export default {
   data() {
     return {
       fields: [
-		//{key: 'id_section', label: "ИД"}, 
-		{key: 'section_name', label: "Наименование секции"/*, sortable: true, sortDirection: 'desc'*/ },
-		{key: 'id_trainer', label: "Тренер"}, 
+		//{key: '0.id_section', label: "ИД"}, 
+		{key: '0.section_name', label: "Наименование секции" },
+		//{key: '0.id_trainer', label: "ИД"}, 
+		{key: '1.last_name', label: "Фамилия"}, 
+		{key: '1.first_name', label: "Имя"}, 
+		{key: '1.middle_name', label: "Отчество"}, 
 		{key:"Update",label: "Update"},
 		{key:"Delete", label: "Delete"}],           	  
       sections: [],

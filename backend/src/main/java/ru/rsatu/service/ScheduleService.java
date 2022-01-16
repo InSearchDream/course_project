@@ -41,7 +41,8 @@ public class ScheduleService {
 
     // Получение списка
     public List<Schedule> getSchedules(){
-        return em.createQuery("select s from Schedule s", Schedule.class).getResultList();
+       // return em.createQuery("select s from Schedule s", Schedule.class).getResultList();
+        return em.createQuery("select sch, pl, hs, s from Schedule sch left join Place pl on sch.id_place = pl.id_place left join HeaderSchedule hs on sch.id_header_schedule = hs.id_header_schedule left join Section s on sch.id_section = s.id_section").getResultList();
     }
 
     // Поиск по ID

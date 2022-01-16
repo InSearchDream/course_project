@@ -94,7 +94,7 @@ export default { // добавление не работает
 		this.id_section = res.data.id_section;
         this.enrolled = res.data.enrolled;
       });
-      LearnerDataService.retrieveAllSections().then((res) => {
+      LearnerDataService.retrieveAllSections1().then((res) => {
         this.sections = res.data;
       });
     },

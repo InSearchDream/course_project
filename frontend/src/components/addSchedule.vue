@@ -121,7 +121,7 @@ export default {
         this.cancell = res.data.cancell;
         this.note = res.data.note;
       });
-      ScheduleDataService.retrieveAllSections().then((res) => {
+      ScheduleDataService.retrieveAllSections1().then((res) => {
         this.sections = res.data;
         console.log(res.data)
       });

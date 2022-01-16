@@ -18,10 +18,10 @@
 			:filter="filter"
 			:fields="fields">
 			<template v-slot:cell(Update)="data">
-				<b-button variant="btn" @click="updateSchedule(data.item.id_schedule)">Δ</b-button>
+				<b-button variant="btn" @click="updateSchedule(data.item[0].id_schedule)">Δ</b-button>
 			</template>
 			<template v-slot:cell(Delete)="data">
-				<b-button variant="btn" @click="deleteSchedule(data.item.id_schedule)">-</b-button>
+				<b-button variant="btn" @click="deleteSchedule(data.item[0].id_schedule)">-</b-button>
 			</template>
 			</b-table>
 			<b-pagination
@@ -49,14 +49,14 @@ export default {
     return {
       fields: [
 		//{key: 'id_schedule', label: "ИД"}, 
-		{key: 'id_place', label: "Место проведения"/*, sortable: true, sortDirection: 'desc'*/ },
-		{key: 'id_section', label: "Секция"}, 
-		{key:"id_header_schedule", label: "Заголовок"},
-		{key:"date", label: "Дата"},
-		{key:"time_start", label: "Время начала"},
-		{key:"time_end", label: "Время окончания"},
-		{key:"cancell", label: "Отмена занятия"},
-		{key:"note", label: "Примечание"},
+		{key:"2.header_name", label: "Заголовок"},
+		{key: '3.section_name', label: "Секция"},
+		{key: '1.place_name', label: "Место проведения"/*, sortable: true, sortDirection: 'desc'*/ },		
+		{key:"0.date", label: "Дата"},
+		{key:"0.time_start", label: "Время начала"},
+		{key:"0.time_end", label: "Время окончания"},
+		{key:"0.cancell", label: "Отмена занятия"},
+		{key:"0.note", label: "Примечание"},
 		{key:"Update",label: "Update"},
 		{key:"Delete", label: "Delete"}],           	  
       schedules: [],

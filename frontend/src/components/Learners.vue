@@ -18,10 +18,10 @@
 			:filter="filter"
 			:fields="fields">
 			<template v-slot:cell(Update)="data">
-				<b-button variant="btn" @click="updateLearner(data.item.id_learner)">Δ</b-button>
+				<b-button variant="btn" @click="updateLearner(data.item[0].id_learner)">Δ</b-button>
 			</template>
 			<template v-slot:cell(Delete)="data">
-				<b-button variant="btn" @click="deleteLearner(data.item.id_learner)">-</b-button>
+				<b-button variant="btn" @click="deleteLearner(data.item[0].id_learner)">-</b-button>
 			</template>
 			</b-table>
 			<b-pagination
@@ -48,14 +48,15 @@ export default {
   data() {
     return {
       fields: [
-		//{key: 'id_trainer', label: "ИД"}, 
-		{key: 'last_name', label: "Фамилия"/*, sortable: true, sortDirection: 'desc'*/ },
-		{key: 'first_name', label: "Имя"}, 
-		{key:"middle_name", label: "Отчество"},
-		{key:"phone", label: "Телефон"},
-		{key:"birthday", label: "Дата рождения"},
-		{key:"id_section", label: "Секция"},
-		{key:"enrolled", label: "Зачислен"},
+		//{key: 'id_learner', label: "ИД"}, 
+		{key: '0.last_name', label: "Фамилия"/*, sortable: true, sortDirection: 'desc'*/ },
+		{key: '0.first_name', label: "Имя"}, 
+		{key:"0.middle_name", label: "Отчество"},
+		{key:"0.phone", label: "Телефон"},
+		{key:"0.birthday", label: "Дата рождения"},
+		//{key:"id_section", label: "Секция"},
+		{key:"1.section_name", label: "Секция"},
+		{key:"0.enrolled", label: "Зачислен"},
 		{key:"Update",label: "Update"},
 		{key:"Delete", label: "Delete"}],           	  
       learners: [],
