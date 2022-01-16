@@ -38,7 +38,7 @@
         </fieldset>
 		<fieldset class="form-group">
           <label>Зачисление </label>
-          <input type="checkbox" class="form-control" v-bind="[true, false]" v-model="enrolled"/> 
+          <input type="checkbox" class="form-control" v-model="enrolled"/>
         </fieldset>
 		<div v-if="errors.length">
           <div
@@ -70,7 +70,7 @@ export default { // добавление не работает
       phone: "",
       birthday: "",
       id_section: "",
-      enrolled: false, 
+      enrolled: "", 
       sections: [],
       errors: [],
     };
@@ -92,7 +92,7 @@ export default { // добавление не работает
         this.phone = res.data.phone;
         this.birthday = res.data.birthday;
 		this.id_section = res.data.id_section;
-        this.enrolled = res.data.enrolled;
+        this.enrolled =  res.data.enrolled == null ? false : res.data.enrolled;
       });
       LearnerDataService.retrieveAllSections1().then((res) => {
         this.sections = res.data;
