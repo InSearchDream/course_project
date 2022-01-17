@@ -48,11 +48,11 @@
         </fieldset>
         <fieldset class="form-group">
           <label>Время начала* </label>
-          <input type="time" class="form-control" v-model="time_start" />
+          <input type="time" step = "1" class="form-control" v-model="time_start" />
         </fieldset>
         <fieldset class="form-group">
           <label>Время окончания* </label>
-          <input type="time" class="form-control" v-model="time_end" />
+          <input type="time" step = "1" class="form-control" v-model="time_end" />
         </fieldset>
         <fieldset class="form-group">
           <label>Отмена занятия </label>
@@ -149,8 +149,8 @@ export default {
             id_section: this.id_section,
             id_header_schedule: this.id_header_schedule,
             date: this.date,
-            time_start: this.time_start+':00',
-            time_end: this.time_end+':00',
+            time_start: this.time_start,//+':00',
+            time_end: this.time_end,//+':00',
             cancell: this.cancell,
             note: this.note,
           }).then(() => {
@@ -163,8 +163,8 @@ export default {
             id_section: this.id_section,
             id_header_schedule: this.id_header_schedule,
             date: this.date,
-            time_start: this.time_start+':00',
-            time_end: this.time_end+':00',
+            time_start: this.time_start,//+':00',
+            time_end: this.time_end,//+':00',
             cancell: this.cancell,
             note: this.note,
           }).then(() => {
