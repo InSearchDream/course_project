@@ -5,8 +5,3 @@
     <button class="btn" v-on:click="btLogin()">Войти</button>
   </div>
 </template>
-
-<script>
-
-</script>
-

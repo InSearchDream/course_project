@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './routes';
+import VueKeyCloak from '@dsb-norge/vue-keycloak-js'
 
 //выбрать лучшее место для импорта vue-select или оставить тут
 import vSelect from 'vue-select'
@@ -12,7 +13,23 @@ Vue.use(BootstrapVue)
 //import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
-Vue.config.productionTip = false
+Vue.use(VueKeyCloak,{
+	initOptions: {
+     flow: 'standard', 
+     checkLoginIframe: false, 
+     onLoad: 'login-required', 
+   },
+	config: {
+      realm : 'sportrealm',
+      url : 'http://localhost:8082/auth',
+      clientId : 'app-auth',
+   },
+   onReady (keycloak) {
+    console.log(keycloak)
+   }
+})
+
+//Vue.config.productionTip = false
 
 new Vue({
   router,
