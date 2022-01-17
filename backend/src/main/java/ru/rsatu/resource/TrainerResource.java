@@ -3,6 +3,7 @@ package ru.rsatu.resource;
 import ru.rsatu.pojo.Trainer;
 import ru.rsatu.service.TrainerService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -14,6 +15,7 @@ public class TrainerResource {
     @Inject
     TrainerService ts;
 
+    @RolesAllowed({"watchTH"})
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/getTrainers")
@@ -28,6 +30,7 @@ public class TrainerResource {
         return Response.ok(ts.getTrainerById(id_trainer)).build();
     }
 
+    @RolesAllowed({"editTrainer"})
     @POST
     @Path("/insertTrainer")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -36,6 +39,7 @@ public class TrainerResource {
         return Response.ok(ts.insertTrainer(tr)).build();
     }
 
+    @RolesAllowed({"editTrainer"})
     @POST
     @Path("/updateTrainer")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -44,6 +48,7 @@ public class TrainerResource {
         return Response.ok(ts.updateTrainer(tr)).build();
     }
 
+    @RolesAllowed({"editTrainer"})
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id_trainer}")

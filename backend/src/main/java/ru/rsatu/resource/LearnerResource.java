@@ -3,6 +3,7 @@ package ru.rsatu.resource;
 import ru.rsatu.pojo.Learner;
 import ru.rsatu.service.LearnerService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -14,6 +15,7 @@ public class LearnerResource {
     @Inject
     LearnerService ls;
 
+    @RolesAllowed({"watchSSL"})
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/getLearners")
@@ -28,6 +30,7 @@ public class LearnerResource {
         return Response.ok(ls.getLearnerById(id_learner)).build();
     }
 
+    @RolesAllowed({"editLearner", "addLearner"})
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -36,6 +39,7 @@ public class LearnerResource {
         return Response.ok(ls.insertLearner(tr)).build();
     }
 
+    @RolesAllowed({"editLearner"})
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -44,6 +48,7 @@ public class LearnerResource {
         return Response.ok(ls.updateLearner(tr)).build();
     }
 
+    @RolesAllowed({"editLearner"})
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id_learner}")

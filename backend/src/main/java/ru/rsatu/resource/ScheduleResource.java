@@ -3,6 +3,7 @@ package ru.rsatu.resource;
 import ru.rsatu.pojo.Schedule;
 import ru.rsatu.service.ScheduleService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -14,6 +15,7 @@ public class ScheduleResource {
     @Inject
     ScheduleService ssch;
 
+    @RolesAllowed({"watchSSL"})
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/getSchedules")
@@ -28,6 +30,7 @@ public class ScheduleResource {
         return Response.ok(ssch.getScheduleById(id_schedule)).build();
     }
 
+    @RolesAllowed({"editSch"})
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -36,6 +39,7 @@ public class ScheduleResource {
         return Response.ok(ssch.insertSchedule(tr)).build();
     }
 
+    @RolesAllowed({"updateSch", "editSch"})
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -44,6 +48,7 @@ public class ScheduleResource {
         return Response.ok(ssch.updateSchedule(tr)).build();
     }
 
+    @RolesAllowed({"editSch"})
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id_schedule}")

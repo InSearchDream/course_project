@@ -3,6 +3,7 @@ package ru.rsatu.resource;
 import ru.rsatu.pojo.Section;
 import ru.rsatu.service.SectionService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -14,6 +15,7 @@ public class SectionResource {
     @Inject
     SectionService ss;
 
+    @RolesAllowed({"watchSSL"})
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/getSections")
@@ -36,6 +38,7 @@ public class SectionResource {
         return Response.ok(ss.getSectionById(id_section)).build();
     }
 
+    @RolesAllowed({"editSection"})
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -44,6 +47,7 @@ public class SectionResource {
         return Response.ok(ss.insertSection(tr)).build();
     }
 
+    @RolesAllowed({"editSection"})
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -52,6 +56,7 @@ public class SectionResource {
         return Response.ok(ss.updateSection(tr)).build();
     }
 
+    @RolesAllowed({"editSection"})
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id_section}")

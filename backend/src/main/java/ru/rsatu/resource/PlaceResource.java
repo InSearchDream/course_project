@@ -3,6 +3,7 @@ package ru.rsatu.resource;
 import ru.rsatu.pojo.Place;
 import ru.rsatu.service.PlaceService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -14,6 +15,7 @@ public class PlaceResource {
     @Inject
     PlaceService ps;
 
+    @RolesAllowed({"watchP"})
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/getPlaces")
@@ -28,6 +30,7 @@ public class PlaceResource {
         return Response.ok(ps.getPlaceById(id_place)).build();
     }
 
+    @RolesAllowed({"editPlace"})
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -36,6 +39,7 @@ public class PlaceResource {
         return Response.ok(ps.insertPlace(tr)).build();
     }
 
+    @RolesAllowed({"editPlace"})
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -44,6 +48,7 @@ public class PlaceResource {
         return Response.ok(ps.updatePlace(tr)).build();
     }
 
+    @RolesAllowed({"editPlace"})
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id_place}")

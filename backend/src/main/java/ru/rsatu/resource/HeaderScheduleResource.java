@@ -3,6 +3,7 @@ package ru.rsatu.resource;
 import ru.rsatu.pojo.HeaderSchedule;
 import ru.rsatu.service.HeaderScheduleService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -14,6 +15,7 @@ public class HeaderScheduleResource {
     @Inject
     HeaderScheduleService shs;
 
+    @RolesAllowed({"watchTH"})
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/getHeaderSchedules")
@@ -28,6 +30,7 @@ public class HeaderScheduleResource {
         return Response.ok(shs.getHeaderScheduleById(id_header_schedule)).build();
     }
 
+    @RolesAllowed({"editHeader"})
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -36,6 +39,7 @@ public class HeaderScheduleResource {
         return Response.ok(shs.insertHeaderSchedule(tr)).build();
     }
 
+    @RolesAllowed({"editHeader"})
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -44,6 +48,7 @@ public class HeaderScheduleResource {
         return Response.ok(shs.updateHeaderSchedule(tr)).build();
     }
 
+    @RolesAllowed({"editHeader"})
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id_header_schedule}")
