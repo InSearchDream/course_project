@@ -52,7 +52,7 @@ export default {
     refreshHeaderScheduleDetails() {
       HeaderScheduleDataService.retrieveHeaderSchedule(this.id_header_schedule).then((res) => {
         this.header_name = res.data.header_name;
-		this.approved = res.data.approved;
+		this.approved = res.data.approved == null ? false : res.data.approved;
       });
     },
     validateAndSubmit(e) {

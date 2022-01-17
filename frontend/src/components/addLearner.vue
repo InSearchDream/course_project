@@ -60,7 +60,7 @@
 <script>
 import LearnerDataService from "../service/DataService";
 
-export default { // добавление не работает
+export default { 
   name: "Learner",
   data() {
     return {

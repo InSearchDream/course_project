@@ -120,7 +120,7 @@ export default {
         this.date = res.data.date;
         this.time_start = res.data.time_start;
         this.time_end = res.data.time_end;
-        this.cancell = res.data.cancell;
+        this.cancell = res.data.cancell == null ? false : res.data.cancell;
         this.note = res.data.note;
       });
       ScheduleDataService.retrieveAllSections1().then((res) => {
