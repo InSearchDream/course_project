@@ -1,7 +1,7 @@
 <template>
   <div id="container" align="center" class="mainform">
     <main-header/>
-	<img alt="Sport logo" src="../assets/sport_logo.png">
+	<img alt="Sport logo" style="margin-top:10px;" src="../assets/sport_logo.png">
 	<h3>SportsTraining</h3>
     <p class="kcName">Добро пожаловать, {{$keycloak.tokenParsed.preferred_username  }}!</p> 
   </div>
