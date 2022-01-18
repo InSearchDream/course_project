@@ -19,7 +19,7 @@
           Места
         </router-link>
         <router-link :to="{ name: 'HeaderSchedules' }">
-          Заголовоки расписаний
+          Заголовки расписания
         </router-link>
 		<p class="kcName">{{ $keycloak.tokenParsed.preferred_username   }}</p>
         <button type="button" class="btn btn-in-out" @click="$keycloak.logoutFn"> Выход
