@@ -15,6 +15,12 @@
         <router-link :to="{ name: 'Learners' }">
           Учащиеся
         </router-link>
+	        <router-link :to="{ name: 'Places' }">
+          Места
+        </router-link>
+        <router-link :to="{ name: 'HeaderSchedules' }">
+          Заголовоки расписаний
+        </router-link>
 		<p class="kcName">{{ $keycloak.tokenParsed.preferred_username   }}</p>
         <button type="button" class="btn btn-in-out" @click="$keycloak.logoutFn"> Выход
           <!--{{ 'Войти' /*auth ? 'Выйти' : 'Войти'*/ }}-->
