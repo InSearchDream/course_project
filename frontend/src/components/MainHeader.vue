@@ -15,9 +15,10 @@
         <router-link :to="{ name: 'Learners' }">
           Учащиеся
         </router-link>
-        <button type="button" class="btn btn-in-out">
-          {{ 'Войти' /*auth ? 'Выйти' : 'Войти'*/ }}
-        </button>
+		<p class="kcName">{{ $keycloak.tokenParsed.preferred_username   }}</p>
+        <button type="button" class="btn btn-in-out" @click="$keycloak.logoutFn"> Выход
+          <!--{{ 'Войти' /*auth ? 'Выйти' : 'Войти'*/ }}-->
+        </button>		
       </div>
     </div>
   </header>
@@ -64,6 +65,12 @@ a {
 .img-logo{
   padding: 12px 30px;
   width: 50px;
+}
+
+.kcName{
+  color: #2c7ecc;
+  text-align: right;
+  float: right;
 }
 
 </style>

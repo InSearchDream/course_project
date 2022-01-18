@@ -1,7 +1,16 @@
 <template>
-  <div id="app" align="center" class="mainform">
+  <div id="container" align="center" class="mainform">
+    <main-header/>
 	<img alt="Sport logo" src="../assets/sport_logo.png">
 	<h3>SportsTraining</h3>
-    <button class="btn" v-on:click="btLogin()">Войти</button>
+     <p class="text-3xl font-bold">Добро пожаловать, {{$keycloak.tokenParsed.preferred_username  }}!</p>
   </div>
 </template>
+
+<script>
+import MainHeader from "@/components/MainHeader";
+export default {
+  name: "mainForm",
+  components: {MainHeader}
+}
+</script>

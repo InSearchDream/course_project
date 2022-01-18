@@ -5,9 +5,9 @@ Vue.use(Router);
 
 const router = new Router({
     mode: 'history',
-    routes: [	// вывод таблиц (для проверки, ненужные позже убрать)
+    routes: [	
 		{
-            path: "/*",
+            path: "/",
             name: "mainForm",
             component: () => import("./components/mainForm"),
         },
