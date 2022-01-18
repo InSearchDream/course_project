@@ -12,7 +12,7 @@ const router = new Router({
             component: () => import("./components/mainForm"),
         },
 		{
-            path: "/maneform",
+            path: "/mainForm",
             name: "mainForm",
             component: () => import("./components/mainForm"),
         },

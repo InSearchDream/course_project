@@ -27,6 +27,7 @@ Vue.use(VueKeyCloak,{
    onReady (keycloak) {
     console.log(keycloak)
    }
+   
 })
 
 //Vue.config.productionTip = false

@@ -17,10 +17,10 @@
 			:current-page="currentPage"
 			:filter="filter"
 			:fields="fields">
-			<template v-slot:cell(Update)="data">
+			<template v-if="$keycloak.hasRealmRole('editSch')||$keycloak.hasRealmRole('updateSch')" v-slot:cell(Update)="data">
 				<b-button variant="btn" @click="updateSchedule(data.item[0].id_schedule)">Δ</b-button>
 			</template>
-			<template v-slot:cell(Delete)="data">
+			<template v-if="$keycloak.hasRealmRole('editSch')" v-slot:cell(Delete)="data">
 				<b-button variant="btn" @click="deleteSchedule(data.item[0].id_schedule)">-</b-button>
 			</template>
 			</b-table>
@@ -32,7 +32,7 @@
 			></b-pagination>
 		</b-col>
 	</b-row>
-	<div class="row">
+	<div v-if="$keycloak.hasRealmRole('editSch')" class="row">
         <button class="btn" v-on:click="addSchedule()">Добавить</button>
     </div>
   </div>

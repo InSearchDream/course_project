@@ -17,10 +17,10 @@
 			:current-page="currentPage"
 			:filter="filter"
 			:fields="fields">
-			<template v-slot:cell(Update)="data">
+			<template v-if="$keycloak.hasRealmRole('editSection')" v-slot:cell(Update)="data">
 				<b-button variant="btn" @click="updateSection(data.item[0].id_section)">Δ</b-button>
 			</template>
-			<template v-slot:cell(Delete)="data">
+			<template v-if="$keycloak.hasRealmRole('editSection')" v-slot:cell(Delete)="data">
 				<b-button variant="btn" @click="deleteSection(data.item[0].id_section)">-</b-button>
 			</template>
 			</b-table>
@@ -32,7 +32,7 @@
 			></b-pagination>
 		</b-col>
 	</b-row>
-	<div class="row">
+	<div v-if="$keycloak.hasRealmRole('editSection')" class="row">
         <button class="btn" v-on:click="addSection()">Добавить</button>
     </div>
   </div>

@@ -17,10 +17,10 @@
 			:current-page="currentPage"
 			:filter="filter"
 			:fields="fields">
-			<template v-slot:cell(Update)="data">
+			<template v-if="$keycloak.hasRealmRole('editHeader')" v-slot:cell(Update)="data">
 				<b-button variant="btn" @click="updateHeaderSchedule(data.item.id_header_schedule)">Δ</b-button>
 			</template>
-			<template v-slot:cell(Delete)="data">
+			<template v-if="$keycloak.hasRealmRole('editHeader')" v-slot:cell(Delete)="data">
 				<b-button variant="btn" @click="deleteHeaderSchedule(data.item.id_header_schedule)">-</b-button>
 			</template>
 			</b-table>
@@ -32,7 +32,7 @@
 			></b-pagination>
 		</b-col>
 	</b-row>
-	<div class="row">
+	<div v-if="$keycloak.hasRealmRole('editHeader')" class="row">
         <button class="btn" v-on:click="addHeaderSchedule()">Добавить</button>
     </div>
   </div>

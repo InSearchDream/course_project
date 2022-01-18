@@ -3,25 +3,29 @@
     <div class="container">
       <div class="links">
         <img src="@/assets/sport_logo.png" class="img-logo" alt="logo" >
-        <router-link :to="{ name: 'Schedules' }">
+        <router-link :to="{ name: 'Schedules' }" v-if="$keycloak.hasRealmRole('watchSSL')">
           Расписание
         </router-link>
-        <router-link :to="{ name: 'Sections' }">
+        <router-link :to="{ name: 'Sections' }" v-if="$keycloak.hasRealmRole('watchSSL')" >
           Секции
         </router-link>
-        <router-link :to="{ name: 'Trainers' }">
+        <router-link :to="{ name: 'Trainers' }" v-if="$keycloak.hasRealmRole('watchTH')">
           Тренера
         </router-link>
-        <router-link :to="{ name: 'Learners' }">
+        <router-link :to="{ name: 'Learners' }" v-if="$keycloak.hasRealmRole('watchSSL')">
           Учащиеся
         </router-link>
-	        <router-link :to="{ name: 'Places' }">
+		<router-link :to="{ name: 'Places' }" v-if="$keycloak.hasRealmRole('watchP')">
           Места
         </router-link>
-        <router-link :to="{ name: 'HeaderSchedules' }">
+        <router-link :to="{ name: 'HeaderSchedules' }" v-if="$keycloak.hasRealmRole('watchTH')">
           Заголовки расписания
         </router-link>
-		<p class="kcName">{{ $keycloak.tokenParsed.preferred_username   }}</p>
+		<!--<p class="kcName">{{ $keycloak.tokenParsed.preferred_username   }}</p>-->
+		<router-link :to="{ name: 'mainForm' }" class="kcName">
+          {{ $keycloak.tokenParsed.preferred_username   }}
+        </router-link>
+		
         <button type="button" class="btn btn-in-out" @click="$keycloak.logoutFn"> Выход
           <!--{{ 'Войти' /*auth ? 'Выйти' : 'Войти'*/ }}-->
         </button>		
