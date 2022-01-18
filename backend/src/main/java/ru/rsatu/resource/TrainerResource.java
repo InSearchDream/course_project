@@ -15,10 +15,10 @@ public class TrainerResource {
     @Inject
     TrainerService ts;
 
-    @RolesAllowed({"watchTH"})
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/getTrainers")
+    //@RolesAllowed({"watchTH"})
     public Response getTrainers(){
         return Response.ok(ts.getTrainers()).build();
     }
@@ -30,33 +30,31 @@ public class TrainerResource {
         return Response.ok(ts.getTrainerById(id_trainer)).build();
     }
 
-    @RolesAllowed({"editTrainer"})
     @POST
     @Path("/insertTrainer")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    //@RolesAllowed({"editTrainer"})
     public Response insertTrainer(Trainer tr){
         return Response.ok(ts.insertTrainer(tr)).build();
     }
 
-    @RolesAllowed({"editTrainer"})
     @POST
     @Path("/updateTrainer")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    //@RolesAllowed({"editTrainer"})
     public Response updateTrainer(Trainer tr){
         return Response.ok(ts.updateTrainer(tr)).build();
     }
 
-    @RolesAllowed({"editTrainer"})
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id_trainer}")
+    //@RolesAllowed({"editTrainer"})
     public Response deleteTrainer(@PathParam("id_trainer") Long id_trainer){
         ts.deleteTrainer(id_trainer);
         return Response.ok().build();
     }
-
-
 
 }

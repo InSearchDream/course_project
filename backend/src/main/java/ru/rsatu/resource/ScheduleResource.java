@@ -15,10 +15,10 @@ public class ScheduleResource {
     @Inject
     ScheduleService ssch;
 
-    @RolesAllowed({"watchSSL"})
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/getSchedules")
+    //@RolesAllowed({"watchSSL"})
     public Response getSchedules(){
         return Response.ok(ssch.getSchedules()).build();
     }
@@ -30,28 +30,28 @@ public class ScheduleResource {
         return Response.ok(ssch.getScheduleById(id_schedule)).build();
     }
 
-    @RolesAllowed({"editSch"})
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/insertSchedule")
+   // @RolesAllowed({"editSch"})
     public Response insertSchedule(Schedule tr){
         return Response.ok(ssch.insertSchedule(tr)).build();
     }
 
-    @RolesAllowed({"updateSch", "editSch"})
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/updateSchedule")
+   // @RolesAllowed({"updateSch", "editSch"})
     public Response updateSchedule(Schedule tr){
         return Response.ok(ssch.updateSchedule(tr)).build();
     }
 
-    @RolesAllowed({"editSch"})
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id_schedule}")
+    //@RolesAllowed({"editSch"})
     public Response deleteSchedule(@PathParam("id_schedule") Long id_schedule){
         ssch.deleteSchedule(id_schedule);
         return Response.ok().build();

@@ -15,10 +15,10 @@ public class LearnerResource {
     @Inject
     LearnerService ls;
 
-    @RolesAllowed({"watchSSL"})
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/getLearners")
+    //@RolesAllowed({"watchSSL"})
     public Response getLearners(){
         return Response.ok(ls.getLearners()).build();
     }
@@ -30,28 +30,28 @@ public class LearnerResource {
         return Response.ok(ls.getLearnerById(id_learner)).build();
     }
 
-    @RolesAllowed({"editLearner", "addLearner"})
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/insertLearner")
+    //@RolesAllowed({"editLearner", "addLearner"})
     public Response insertLearner(Learner tr){
         return Response.ok(ls.insertLearner(tr)).build();
     }
 
-    @RolesAllowed({"editLearner"})
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/updateLearner")
+    //@RolesAllowed({"editLearner"})
     public Response updateLearner(Learner tr){
         return Response.ok(ls.updateLearner(tr)).build();
     }
 
-    @RolesAllowed({"editLearner"})
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id_learner}")
+   // @RolesAllowed({"editLearner"})
     public Response deleteLearner(@PathParam("id_learner") Long id_learner){
         ls.deleteLearner(id_learner);
         return Response.ok().build();
