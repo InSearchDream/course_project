@@ -57,9 +57,7 @@ a {
 }
 
 .btn {
-  margin-left: auto;
   width: auto;
-  align-items: center;
   margin-bottom: 0;
 }
 .img-logo{
@@ -71,6 +69,8 @@ a {
   color: #2c7ecc;
   text-align: right;
   float: right;
+    margin-left: auto;
+  padding-right: 25px;
 }
 
 </style>
