@@ -3,7 +3,7 @@
     <main-header/>
 	<img alt="Sport logo" src="../assets/sport_logo.png">
 	<h3>SportsTraining</h3>
-     <p class="text-3xl font-bold">Добро пожаловать, {{$keycloak.tokenParsed.preferred_username  }}!</p>
+    <p class="kcName">Добро пожаловать, {{$keycloak.tokenParsed.preferred_username  }}!</p> 
   </div>
 </template>
 

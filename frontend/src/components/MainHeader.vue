@@ -69,7 +69,7 @@ a {
   color: #2c7ecc;
   text-align: right;
   float: right;
-    margin-left: auto;
+  margin-left: auto;
   padding-right: 25px;
 }
 
