@@ -36,7 +36,7 @@
             <div slot="no-options">Никаких не нашлось</div>
           </v-select>
         </fieldset>
-		<fieldset class="form-group">
+		<fieldset v-if="$keycloak.hasRealmRole('editLearner')" class="form-group">
           <label>Зачисление </label>
           <input type="checkbox" class="form-control" v-model="enrolled"/>
         </fieldset>
