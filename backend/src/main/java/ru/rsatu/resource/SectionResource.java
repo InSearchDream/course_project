@@ -18,7 +18,7 @@ public class SectionResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/getSections")
-   // @RolesAllowed({"watchSSL"})
+    @RolesAllowed({"watchSSL"})
     public Response getSections(){
         return Response.ok(ss.getSections()).build();
     }
@@ -42,7 +42,7 @@ public class SectionResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/insertSection")
-    //@RolesAllowed({"editSection"})
+    @RolesAllowed({"editSection"})
     public Response insertSection(Section tr){
         return Response.ok(ss.insertSection(tr)).build();
     }
@@ -51,7 +51,7 @@ public class SectionResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/updateSection")
-    //@RolesAllowed({"editSection"})
+    @RolesAllowed({"editSection"})
     public Response updateSection(Section tr){
         return Response.ok(ss.updateSection(tr)).build();
     }
@@ -59,7 +59,7 @@ public class SectionResource {
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id_section}")
-    //@RolesAllowed({"editSection"})
+    @RolesAllowed({"editSection"})
     public Response deleteSection(@PathParam("id_section") Long id_section){
         ss.deleteSection(id_section);
         return Response.ok().build();

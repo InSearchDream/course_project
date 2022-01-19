@@ -18,7 +18,7 @@ public class PlaceResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/getPlaces")
-    //@RolesAllowed({"watchP"})
+    @RolesAllowed({"watchP"})
     public Response getPlaces(){
         return Response.ok(ps.getPlaces()).build();
     }
@@ -34,7 +34,7 @@ public class PlaceResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/insertPlace")
-   // @RolesAllowed({"editPlace"})
+    @RolesAllowed({"editPlace"})
     public Response insertPlace(Place tr){
         return Response.ok(ps.insertPlace(tr)).build();
     }
@@ -43,7 +43,7 @@ public class PlaceResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/updatePlace")
-    //@RolesAllowed({"editPlace"})
+    @RolesAllowed({"editPlace"})
     public Response updatePlace(Place tr){
         return Response.ok(ps.updatePlace(tr)).build();
     }
@@ -51,7 +51,7 @@ public class PlaceResource {
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id_place}")
-   // @RolesAllowed({"editPlace"})
+    @RolesAllowed({"editPlace"})
     public Response deletePlace(@PathParam("id_place") Long id_place){
         ps.deletePlace(id_place);
         return Response.ok().build();

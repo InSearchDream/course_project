@@ -18,7 +18,7 @@ public class HeaderScheduleResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/getHeaderSchedules")
-   // @RolesAllowed({"watchTH"})
+    @RolesAllowed({"watchTH"})
     public Response getHeaderSchedules(){
         return Response.ok(shs.getHeaderSchedules()).build();
     }
@@ -34,7 +34,7 @@ public class HeaderScheduleResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/insertHeaderSchedule")
-   // @RolesAllowed({"editHeader"})
+    @RolesAllowed({"editHeader"})
     public Response insertHeaderSchedule(HeaderSchedule tr){
         return Response.ok(shs.insertHeaderSchedule(tr)).build();
     }
@@ -43,7 +43,7 @@ public class HeaderScheduleResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/updateHeaderSchedule")
-    //@RolesAllowed({"editHeader"})
+    @RolesAllowed({"editHeader"})
     public Response updateHeaderSchedule(HeaderSchedule tr){
         return Response.ok(shs.updateHeaderSchedule(tr)).build();
     }
@@ -51,7 +51,7 @@ public class HeaderScheduleResource {
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id_header_schedule}")
-   // @RolesAllowed({"editHeader"})
+    @RolesAllowed({"editHeader"})
     public Response deleteHeaderSchedule(@PathParam("id_header_schedule") Long id_header_schedule){
         shs.deleteHeaderSchedule(id_header_schedule);
         return Response.ok().build();
