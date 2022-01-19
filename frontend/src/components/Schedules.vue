@@ -20,11 +20,11 @@
 			<template v-if="$keycloak.hasRealmRole('editSch')||$keycloak.hasRealmRole('updateSch')" v-slot:cell(Update)="data">
 				<b-button variant="btn" @click="updateSchedule(data.item[0].id_schedule)">Δ</b-button>
 			</template>
-			<template v-else v-slot:cell(Update)>Нет прав</template>
+			<template v-else v-slot:cell(Update)>Δ</template>
 			<template v-if="$keycloak.hasRealmRole('editSch')" v-slot:cell(Delete)="data">
 				<b-button variant="btn" @click="deleteSchedule(data.item[0].id_schedule)">-</b-button>
 			</template>
-			<template v-else v-slot:cell(Delete)>Нет прав</template>
+			<template v-else v-slot:cell(Delete)>-</template>
 			</b-table>
 			<b-pagination
 			class="pagination"
