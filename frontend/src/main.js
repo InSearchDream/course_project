@@ -13,8 +13,10 @@ Vue.use(BootstrapVue)
 //import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+Vue.config.productionTip = false
+
 Vue.use(VueKeyCloak,{
-	initOptions: {
+	init: {
      flow: 'standard', 
      checkLoginIframe: false, 
      onLoad: 'login-required', 
@@ -29,8 +31,6 @@ Vue.use(VueKeyCloak,{
    }
    
 })
-
-//Vue.config.productionTip = false
 
 new Vue({
   router,
