@@ -20,9 +20,11 @@
 			<template v-if="$keycloak.hasRealmRole('editTrainer')" v-slot:cell(Update)="data">
 				<b-button variant="btn" @click="updateTrainer(data.item.id_trainer)">Δ</b-button>
 			</template>
+			<template v-else v-slot:cell(Update)>Нет прав</template>
 			<template v-if="$keycloak.hasRealmRole('editTrainer')" v-slot:cell(Delete)="data">
 				<b-button variant="btn" @click="deleteTrainer(data.item.id_trainer)">-</b-button>
 			</template>
+			<template v-else v-slot:cell(Delete)>Нет прав</template>
 			</b-table>
 			<b-pagination
 			class="pagination"

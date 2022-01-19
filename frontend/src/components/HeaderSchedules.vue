@@ -20,9 +20,11 @@
 			<template v-if="$keycloak.hasRealmRole('editHeader')" v-slot:cell(Update)="data">
 				<b-button variant="btn" @click="updateHeaderSchedule(data.item.id_header_schedule)">Δ</b-button>
 			</template>
+			<template v-else v-slot:cell(Update)>Нет прав</template>
 			<template v-if="$keycloak.hasRealmRole('editHeader')" v-slot:cell(Delete)="data">
 				<b-button variant="btn" @click="deleteHeaderSchedule(data.item.id_header_schedule)">-</b-button>
 			</template>
+			<template v-else v-slot:cell(Delete)>Нет прав</template>
 			</b-table>
 			<b-pagination
 			class="pagination"

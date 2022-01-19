@@ -20,9 +20,11 @@
 			<template v-if="$keycloak.hasRealmRole('editSch')||$keycloak.hasRealmRole('updateSch')" v-slot:cell(Update)="data">
 				<b-button variant="btn" @click="updateSchedule(data.item[0].id_schedule)">Δ</b-button>
 			</template>
+			<template v-else v-slot:cell(Update)>Нет прав</template>
 			<template v-if="$keycloak.hasRealmRole('editSch')" v-slot:cell(Delete)="data">
 				<b-button variant="btn" @click="deleteSchedule(data.item[0].id_schedule)">-</b-button>
 			</template>
+			<template v-else v-slot:cell(Delete)>Нет прав</template>
 			</b-table>
 			<b-pagination
 			class="pagination"
@@ -50,6 +52,7 @@ export default {
       fields: [
 		//{key: 'id_schedule', label: "ИД"}, 
 		{key:"2.header_name", label: "Заголовок"},
+		{key:"2.approved", label: ""},
 		{key: '3.section_name', label: "Секция"},
 		{key: '1.place_name', label: "Место проведения"/*, sortable: true, sortDirection: 'desc'*/ },		
 		{key:"0.date", label: "Дата"},
