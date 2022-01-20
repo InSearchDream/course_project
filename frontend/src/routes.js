@@ -7,12 +7,12 @@ const router = new Router({
     mode: 'history',
     routes: [
         {
-            path: "/",
+            path: "/*",
             name: "mainForm",
             component: () => import("./components/mainForm"),
         },
         {
-            path: "/maneform",
+            path: "/maneform/",
             name: "mainForm",
             component: () => import("./components/mainForm"),
             meta: {
