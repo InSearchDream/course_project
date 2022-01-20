@@ -1,14 +1,14 @@
 <template>
   <div class="container">
-  <main-header/>
+    <main-header/>
     <h3>Данные о секциях</h3>
-	<b-row>
-		<b-col md="3">
-			<b-form-input v-model="filter" type="search" placeholder="Найти"> </b-form-input>
-		</b-col>
-	</b-row>
-	<b-row>
-		<b-col>
+    <b-row>
+      <b-col md="3">
+        <b-form-input v-model="filter" type="search" placeholder="Найти"></b-form-input>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col>
         <b-table
             striped
             hover
@@ -24,16 +24,16 @@
             <b-button variant="btn" @click="deleteSection(data.item[0].id_section)">-</b-button>
           </template>
         </b-table>
-			<b-pagination
-			class="pagination"
-			v-model="currentPage"
-			:total-rows="rows"
-			:per-page="perPage"
-			></b-pagination>
-		</b-col>
-	</b-row>
-	<div v-if="$keycloak.hasRealmRole('editSection')" class="row">
-        <button class="btn" v-on:click="addSection()">Добавить</button>
+        <b-pagination
+            class="pagination"
+            v-model="currentPage"
+            :total-rows="rows"
+            :per-page="perPage"
+        ></b-pagination>
+      </b-col>
+    </b-row>
+    <div v-if="$keycloak.hasRealmRole('editSection')" class="row">
+      <button class="btn" v-on:click="addSection()">Добавить</button>
     </div>
   </div>
 </template>
@@ -41,7 +41,6 @@
 <script>
 import SectionDataService from "../service/DataService";
 import MainHeader from "@/components/MainHeader";
-import router from "@/routes";
 
 export default {
   name: "Section",
@@ -56,12 +55,12 @@ export default {
         {key: '1.first_name', label: "Тренер", visible: true},
         {key: '1.middle_name', label: "", visible: true},
         {key: "Update", label: "Update", visible: true},
-        {key: "Delete", label: "Delete", visible: true}],         	  
+        {key: "Delete", label: "Delete", visible: true}],
       sections: [],
       filter: "",
       message: "",
       perPage: 5,
-      currentPage: 1,	
+      currentPage: 1,
     };
   },
   methods: {
@@ -83,18 +82,17 @@ export default {
     },
   },
   computed: {
-      visibleFields() {
+    visibleFields() {
       return this.fields.filter(field => field.visible)
     },
-      rows() {
-        return this.sections.length
-      }
+    rows() {
+      return this.sections.length
+    }
   },
   created() {
-    this.refreshSections();
-    //можно через if, но так меньше кода
-    this.fields[4].visible = router.app.$keycloak.hasRealmRole('editSection')
-    this.fields[5].visible = router.app.$keycloak.hasRealmRole('editSection')
-  },
-};
+    this.refreshSections()
+    this.fields[4].visible = this.$router.app.$keycloak.hasRealmRole('editSection')
+    this.fields[5].visible = this.$router.app.$keycloak.hasRealmRole('editSection')
+  }
+}
 </script>
