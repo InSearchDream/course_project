@@ -129,7 +129,14 @@ router.beforeEach(async (to, from, next) => {
             await sleep(100)
         }
         if (router.app.$keycloak.authenticated) {
-            next()
+            //next()
+            
+            switch (to.name) {
+                case 'Places' : !router.app.$keycloak.hasRealmRole("watchP") ? next('/schedules') : next(); break
+                case 'HeaderSchedules' : !router.app.$keycloak.hasRealmRole("watchTH") ? next('/schedules'): next(); break
+                default:next()
+            }            
+            
         } else {
             const loginUrl = router.app.$keycloak.createLoginUrl()
             window.location.replace(loginUrl)
