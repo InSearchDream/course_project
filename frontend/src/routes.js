@@ -134,6 +134,7 @@ router.beforeEach(async (to, from, next) => {
             switch (to.name) {
                 case 'Places' : !router.app.$keycloak.hasRealmRole("watchP") ? next('/schedules') : next(); break
                 case 'HeaderSchedules' : !router.app.$keycloak.hasRealmRole("watchTH") ? next('/schedules'): next(); break
+				case 'Trainers' : !router.app.$keycloak.hasRealmRole("watchTH") ? next('/schedules'): next(); break
                 default:next()
             }            
             
