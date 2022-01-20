@@ -41,6 +41,7 @@
 <script>
 import SectionDataService from "../service/DataService";
 import MainHeader from "@/components/MainHeader";
+import router from "@/routes";
 
 export default {
   name: "Section",
